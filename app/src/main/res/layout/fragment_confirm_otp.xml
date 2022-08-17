@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="confirmOtpViewModel"
+            type="com.rbt.merchant.presentation.fragment.confirm_otp.ConfirmOtpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.fragment.confirm_otp.ConfirmOtpFragment">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:contentDescription="@string/app_logo_image_desc"
+            android:src="@drawable/ic_rbt_logo"
+            android:transitionName="from_splash_to_phone_auth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:text="@string/title_verify"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintEnd_toEndOf="@id/logo"
+            app:layout_constraintStart_toStartOf="@id/logo"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/squareField"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:cursorVisible="true"
+            android:hint="Hint."
+            android:inputType="text"
+            android:itemBackground="@drawable/draw_border_medium_white"
+            android:text="@={confirmOtpViewModel.otp}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cursorColor="@color/white_gray"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="48dp"
+            app:itemRadius="4dp"
+            app:itemSpacing="10dp"
+            app:itemWidth="48dp"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:lineColor="@color/white_gray"
+            app:lineWidth="2dp"
+            app:viewType="rectangle" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/verify"
+            style="@style/dark_button"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:background="@drawable/draw_border_medium_purple"
+            android:text="@string/verify"
+            android:onClick="@{(view)->confirmOtpViewModel.onClickVerifyBtn(view)}"
+            app:layout_constraintEnd_toEndOf="@id/squareField"
+            app:layout_constraintStart_toStartOf="@id/squareField"
+            app:layout_constraintTop_toBottomOf="@id/squareField" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/resend_code_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:orientation="vertical"
+            android:onClick="@{(view)->confirmOtpViewModel.onClickResendBtn(view)}"
+            app:layout_constraintEnd_toEndOf="@id/verify"
+            app:layout_constraintStart_toStartOf="@id/verify"
+            app:layout_constraintTop_toBottomOf="@id/verify">
+
+            <TextView
+                android:id="@+id/resend_code_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resend Code"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/purple_500"
+                app:layout_constraintEnd_toEndOf="@id/resend_code_tv"
+                app:layout_constraintStart_toStartOf="@id/resend_code_tv"
+                app:layout_constraintTop_toBottomOf="@id/resend_code_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
