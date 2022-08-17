@@ -18,7 +18,7 @@ import com.rbt.merchant.utils.sharedPref
  * Check if user have login already or not
  * if login: open home fragment
  * if not: open phone fragment
-*/
+**/
 
 private const val TAG = "SplashFragment"
 class SplashFragment : Fragment() {
@@ -53,12 +53,11 @@ class SplashFragment : Fragment() {
                 )
             } else {
                 Log.d(TAG, "onCreateView: go to home")
-               /* findNavController().navigate(
+                findNavController().navigate(
                     SplashFragmentDirections.actionSplashFragmentToHomeFragment()
-                )*/
+                )
             }
         }, 4000)
-
 
 
         return binding.root

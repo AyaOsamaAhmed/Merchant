@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/english_lang"
+        android:icon="@drawable/english"
+        android:title="@string/english" />
+
+    <item
+        android:id="@+id/jordan_lang"
+        android:icon="@drawable/jordan"
+        android:title="@string/jordan" />
+
+    <item
+        android:id="@+id/india_lang"
+        android:icon="@drawable/india"
+        android:title="@string/india" />
+
+
+</menu>

@@ -27,9 +27,10 @@
     <string name="india">India</string>
     <string name="english">English</string>
     <string name="select_language">Select Language</string>
-    <string name="driver_name">Driver Name</string>
+    <string name="store_name">Store Name</string>
     <string name="active">Active</string>
     <string name="driver_profile_pic">driver profile pic</string>
-    <string name="map_will_be_here">Map Will be here</string>
-    <string name="homefragment">HomeFragment</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="list_image">list Image</string>
+    <string name="store_logo">Store Logo</string>
 </resources>

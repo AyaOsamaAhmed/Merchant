@@ -15,30 +15,32 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_SplashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/phoneAuthFragment"
         android:name="com.rbt.merchant.presentation.fragment.phone_auth.PhoneAuthFragment"
-        tools:layout="@layout/fragment_phone_auth"
-        android:label="PhoneAuthFragment" >
+        android:label="PhoneAuthFragment"
+        tools:layout="@layout/fragment_phone_auth">
         <action
             android:id="@+id/action_phoneAuthFragment_to_otpVerificationFragment"
             app:destination="@id/otpVerificationFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/otpVerificationFragment"
         android:name="com.rbt.merchant.presentation.fragment.confirm_otp.ConfirmOtpFragment"
-        tools:layout="@layout/fragment_confirm_otp"
-        android:label="OtpVerificationFragment" >
+        android:label="OtpVerificationFragment"
+        tools:layout="@layout/fragment_confirm_otp">
         <argument
             android:name="phoneNumber"
-            app:argType="string"
-            />
+            app:argType="string" />
         <action
             android:id="@+id/action_otpVerificationFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -46,8 +48,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.rbt.merchant.presentation.fragment.home.HomeFragment"
-        tools:layout="@layout/fragment_home"
-        android:label="HomeFragment" />
-
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
 
 </navigation>
