@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">15</dimen>
+    <dimen name="desc">12</dimen>
+    <dimen name="title">18</dimen>
+</resources>
