@@ -11,6 +11,10 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Spinner
+import android.widget.SpinnerAdapter
+import android.widget.Toast
 import androidx.annotation.MenuRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.view.menu.MenuBuilder
@@ -20,19 +24,22 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentHomeBinding
+import com.rbt.merchant.presentation.fragment.home.side_menu.ProfilesSwitcherAdapter
 import com.rbt.merchant.utils.common.CommonFunction
 import com.rbt.merchant.utils.sharedPref
 
 
 private const val TAG = "HomeFragment"
 
-class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener {
+class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener{
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var profilesAdapter: ProfilesSwitcherAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        profilesAdapter = ProfilesSwitcherAdapter()
         return binding.root
     }
 
@@ -44,6 +51,13 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
         binding.appBarMainLayout.openSideMenuImg.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
+        val profilesList = ArrayList<Pair<String,Int>>()
+        profilesList.add(Pair("Store One",R.drawable.ic_rbt_logo))
+        profilesList.add(Pair("Store Two",R.drawable.ic_rbt_logo))
+        profilesList.add(Pair("Store There",R.drawable.ic_rbt_logo))
+        profilesAdapter.setProfilesList(profilesList)
+       binding.navView.getHeaderView(0).findViewById<Spinner>(R.id.profiles_switcher_spin).adapter = profilesAdapter
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -116,4 +130,11 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
         }
     }
 
+    override fun onItemSelected(arg0: AdapterView<*>?, arg1: View?, position: Int, id: Long) {
+        CommonFunction.showToast(requireContext(),"Profile CLicked")
+    }
+
+    override fun onNothingSelected(arg0: AdapterView<*>?) {
+        // TODO Auto-generated method stub
+    }
 }
