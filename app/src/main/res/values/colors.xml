@@ -7,11 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="accent_color">#fdc200</color>
+    <!--<color name="accent_color">#fdc200</color>-->
     <color name="gray">#81706C6C</color>
+    <color name="light_gray">#EAEAEA</color>
     <color name="white_gray">#81DFDCDC</color>
     <color name="indicator">#B4B1B1</color>
-    <color name="fab_button">#fdc200</color>
+    <color name="fab_button">#fdc208</color>
     <color name="fab_text">#572589</color>
     <color name="red">#FF0303</color>
     <color name="green">#2db24b</color>

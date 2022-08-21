@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
                     CommonFunction.openCustomFragment(requireActivity(),binding.mainOperationContainer.id,ArchiveFragment())
                 }
                 R.id.chat_menu -> {
-                    CommonFunction.openCustomFragment(requireActivity(),binding.mainOperationContainer.id,ChatClickedFragment())
+                    CommonFunction.openCustomFragment(requireActivity(),binding.mainOperationContainer.id,ChatFragment())
                 }
                 R.id.account_menu -> {
                     CommonFunction.openCustomFragment(requireActivity(),binding.mainOperationContainer.id,ProfileFragment())

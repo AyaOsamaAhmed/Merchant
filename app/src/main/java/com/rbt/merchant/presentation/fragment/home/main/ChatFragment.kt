@@ -10,7 +10,7 @@ import com.rbt.merchant.databinding.FragmentChatBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 
 
-class ChatClickedFragment : Fragment(),ChatAdapter.OnChatClicked {
+class ChatFragment : Fragment(),ChatAdapter.OnChatClicked {
     private lateinit var binding: FragmentChatBinding
     private lateinit var viewModel : ChatViewModel
     private lateinit var adapter: ChatAdapter
