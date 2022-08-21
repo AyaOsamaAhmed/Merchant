@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/drawable-v24/draw_circle_small_purple.xml" value="0.2525" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/drawable/background_carve_gray.xml" value="0.2155" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/drawable/custom_spinner_background.xml" value="0.2155" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/drawable/draw_border_gray_medium_white.xml" value="0.137" />
@@ -21,6 +22,7 @@
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_profile.xml" value="0.178125" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_statistics.xml" value="0.178125" />
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/item_chat.xml" value="0.25" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/nav_header_main.xml" value="0.1743659420289855" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/profiles_switcher_list_item.xml" value="0.25" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />

@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/chatFragment"
         tools:layout="@layout/fragment_chat"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.ChatFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.ChatClickedFragment"
         android:label="ChatFragment" />
     <fragment
         android:id="@+id/statisticsFragment"

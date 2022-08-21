@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.rbt.merchant.domain.use_case.ui_models.chat.Chat" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_70sdp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/image_card"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_11sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/line">
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/chat_logo"
+        tools:src="@tools:sample/avatars"
+        app:bindImgUrl="@{model.image}"
+        app:bindProgressItem="@{progressBar}"
+
+        />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/purple_500"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@tools:sample/full_names"
+        android:text="@{model.title}"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_card"
+        app:layout_constraintBottom_toBottomOf="@id/image_card"
+        />
+
+    <TextView
+        android:id="@+id/last_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="@tools:sample/lorem/random"
+        android:text="@{model.last_message}"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/_10sdp"
+        android:maxLines="1"
+        android:textAlignment="viewStart"
+        android:paddingEnd="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintEnd_toStartOf="@id/un_read"
+        />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="2:33"
+        android:text="@{model.time}"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_3sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/un_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="33"
+        android:text="@{model.unRead.toString()}"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp"
+        android:background="@drawable/draw_circle_small_purple"
+        android:paddingVertical="@dimen/_3sdp"
+        android:paddingHorizontal="@dimen/_7sdp"
+        app:layout_constraintEnd_toEndOf="@id/time"
+        app:layout_constraintBottom_toBottomOf="@id/last_message"
+        />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray"
+        android:layout_margin="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
