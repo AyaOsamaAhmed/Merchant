@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/home_nav">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/currentOrderFragment">
+
+    <fragment
+        android:id="@+id/currentOrderFragment"
+        tools:layout="@layout/fragment_current_order"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.CurrentOrderFragment"
+        android:label="CurrentOrderFragment" />
+    <fragment
+        android:id="@+id/archiveFragment"
+        tools:layout="@layout/fragment_archive"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.ArchiveFragment"
+        android:label="ArchiveFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        tools:layout="@layout/fragment_profile"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.ProfileFragment"
+        android:label="ArchiveFragment" />
+    <fragment
+        android:id="@+id/chatFragment"
+        tools:layout="@layout/fragment_chat"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.ChatFragment"
+        android:label="ChatFragment" />
+    <fragment
+        android:id="@+id/statisticsFragment"
+        tools:layout="@layout/fragment_statistics"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.StatisticsFragment"
+        android:label="StatisticsFragment" />
 
 </navigation>

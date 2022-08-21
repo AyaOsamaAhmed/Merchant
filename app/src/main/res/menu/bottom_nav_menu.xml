@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/statistic_menu"
+        android:icon="@drawable/ic_statistics"
+        android:title="@string/statistics" />
+    <item
+        android:id="@+id/chat_menu"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/offered_chats" />
+    <item
+        android:id="@+id/main_operation_menu"
+        android:icon="@drawable/ic_order"
+        android:title="@string/current_orders"/>
+    <item
+        android:id="@+id/archive_menu"
+        android:icon="@drawable/ic_archive"
+        android:title="@string/archive" />
+    <item
+        android:id="@+id/account_menu"
+        android:icon="@drawable/ic_account"
+        android:title="@string/profile" />
+
+
+
+</menu>

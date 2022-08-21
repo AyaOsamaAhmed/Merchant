@@ -13,8 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Spinner
-import android.widget.SpinnerAdapter
-import android.widget.Toast
 import androidx.annotation.MenuRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.view.menu.MenuBuilder
@@ -22,6 +20,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.rbt.merchant.presentation.fragment.home.main.MainFragment
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentHomeBinding
 import com.rbt.merchant.presentation.fragment.home.side_menu.ProfilesSwitcherAdapter
@@ -46,6 +45,9 @@ class HomeFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated: token from pref: ${sharedPref.userTokenPref}")
+        CommonFunction.openCustomFragment(requireActivity(),binding.appBarMainLayout.mainFragContainer.id,
+            MainFragment()
+        )
         binding.navView.setNavigationItemSelectedListener(this)
         binding.navView.itemIconTintList = null
         binding.appBarMainLayout.openSideMenuImg.setOnClickListener {

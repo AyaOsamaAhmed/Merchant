@@ -33,4 +33,10 @@
     <string name="home_fragment">الصفحه الرئيسيه</string>
     <string name="list_image">list Image</string>
     <string name="store_logo">Store Logo</string>
+    <string name="current_orders">الطلبات الحالية</string>
+    <string name="home">الرئيسية</string>
+    <string name="archive">المؤرشفه</string>
+    <string name="profile">الصفحه الشخصية</string>
+    <string name="statistics">الاحصائات</string>
+    <string name="offered_chats">المحادثات</string>
 </resources>
