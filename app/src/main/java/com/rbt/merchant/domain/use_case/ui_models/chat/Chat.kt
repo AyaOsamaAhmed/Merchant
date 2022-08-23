@@ -1,8 +1,9 @@
 package com.rbt.merchant.domain.use_case.ui_models.chat
 
-import kotlinx.serialization.Serializable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-@Serializable
+@Parcelize
 data class Chat(
     val id: Int,
     val image: String,
@@ -10,4 +11,4 @@ data class Chat(
     val last_message: String? = null,
     val time: String? = null,
     val unRead: Int? = null
-)
+): Parcelable

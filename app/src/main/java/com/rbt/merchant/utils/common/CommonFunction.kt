@@ -14,7 +14,8 @@ object CommonFunction{
     fun openCustomFragment(activity:FragmentActivity,containerId:Int,fragment: Fragment){
         activity.supportFragmentManager.beginTransaction()
             .replace(containerId, fragment)
-            .disallowAddToBackStack()
+            //.disallowAddToBackStack()
+            .addToBackStack(null)
             .commit()
     }
     fun showToast(context: Context,message:String){

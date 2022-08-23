@@ -10,21 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.fragment.home.main.ChatFragment">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chat Fragment"
-            android:textAlignment="center"
-            android:textColor="@color/purple_500"
-            android:textSize="@dimen/_18sdp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".presentation.fragment.home.main.chat.ChatFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/offered_chats_rv"

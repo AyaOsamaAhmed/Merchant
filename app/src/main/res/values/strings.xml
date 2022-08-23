@@ -40,4 +40,5 @@
     <string name="profile">Profile</string>
     <string name="archive">Archive</string>
     <string name="chat_logo">chat logo</string>
+    <string name="type_a_message">Type a message</string>
 </resources>

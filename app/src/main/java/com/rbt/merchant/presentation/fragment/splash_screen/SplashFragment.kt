@@ -54,7 +54,7 @@ class SplashFragment : Fragment() {
             } else {
                 Log.d(TAG, "onCreateView: go to home")
                 findNavController().navigate(
-                    SplashFragmentDirections.actionSplashFragmentToHomeFragment()
+                    SplashFragmentDirections.actionSplashFragmentToHomeNav()
                 )
             }
         }, 4000)

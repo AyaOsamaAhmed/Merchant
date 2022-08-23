@@ -4,23 +4,23 @@
 
 
     <item
-        android:id="@+id/statistic_menu"
+        android:id="@+id/statisticsFragment"
         android:icon="@drawable/ic_statistics"
         android:title="@string/statistics" />
     <item
-        android:id="@+id/chat_menu"
+        android:id="@+id/chatFragment"
         android:icon="@drawable/ic_chat"
         android:title="@string/offered_chats" />
     <item
-        android:id="@+id/main_operation_menu"
+        android:id="@+id/currentOrderFragment"
         android:icon="@drawable/ic_order"
         android:title="@string/current_orders"/>
     <item
-        android:id="@+id/archive_menu"
+        android:id="@+id/archiveFragment"
         android:icon="@drawable/ic_archive"
         android:title="@string/archive" />
     <item
-        android:id="@+id/account_menu"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_account"
         android:title="@string/profile" />
 

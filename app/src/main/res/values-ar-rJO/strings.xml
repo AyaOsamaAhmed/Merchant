@@ -40,4 +40,5 @@
     <string name="statistics">الاحصائات</string>
     <string name="offered_chats">المحادثات</string>
     <string name="chat_logo">chat logo</string>
+    <string name="type_a_message">Type a message</string>
 </resources>

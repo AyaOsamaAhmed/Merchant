@@ -71,7 +71,7 @@ class ConfirmOtpFragment : Fragment() {
             }else{
                 CommonFunction.showToast(requireContext(),"otp match successfully")
                 Log.d(TAG, "onViewCreated: auth response token: ${response.data.session}")
-                findNavController().navigate(ConfirmOtpFragmentDirections.actionOtpVerificationFragmentToHomeFragment())
+                findNavController().navigate(ConfirmOtpFragmentDirections.actionOtpVerificationFragmentToHomeNav())
                 sharedPref.userTokenPref = response.data.session
             }
         }
