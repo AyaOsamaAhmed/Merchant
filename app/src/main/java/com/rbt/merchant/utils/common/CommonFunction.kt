@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.rbt.merchant.utils.constants.LanguageConstant
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * the shared and common function
@@ -29,7 +31,6 @@ object CommonFunction{
         LocaleHelper.saveLanguageToSharedPref(LanguageConstant.INDIA_LANG)
         LocaleHelper.reCreateActivity(activity)
     }
-
     fun onClickEnglishLang(activity: Activity) {
         LocaleHelper.saveLanguageToSharedPref(LanguageConstant.ENGLISH_LANG)
         LocaleHelper.reCreateActivity(activity)
@@ -41,5 +42,9 @@ object CommonFunction{
             .replace("5".toRegex(), "٥").replace("6".toRegex(), "٦")
             .replace("7".toRegex(), "٧").replace("8".toRegex(), "٨")
             .replace("9".toRegex(), "٩").replace("0".toRegex(), "٠")
+    }
+    fun getCurrentTime(): String {
+        val simpleDate = SimpleDateFormat("hh:mm a")
+        return simpleDate.format(Date())
     }
 }
