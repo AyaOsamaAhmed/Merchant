@@ -25,7 +25,7 @@
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/chat_time_item.xml" value="0.25" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_archive.xml" value="0.178125" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_chat.xml" value="0.17617753623188406" />
-        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_chat_details.xml" value="0.264" />
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_chat_details.xml" value="0.4337194337194337" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_current_order.xml" value="0.1640625" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_main.xml" value="0.176" />
@@ -38,6 +38,7 @@
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/message_time_item.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/nav_header_main.xml" value="0.1743659420289855" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/profiles_switcher_list_item.xml" value="0.25" />
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/menu/access_camera_menu.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/menu/language_menu.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/menu/main_menu.xml" value="0.25" />

@@ -8,5 +8,6 @@ data class MessagesModel (
     val imageURL: String?=null,
     val messageTime: String?=null,
     val message: String?=null,
+    val messageType: String?=null,
     val timeStamp: String?=null
 )
