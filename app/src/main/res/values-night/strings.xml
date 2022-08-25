@@ -35,4 +35,7 @@
     <string name="store_logo">Store Logo</string>
     <string name="chat_logo">chat logo</string>
     <string name="type_a_message">Type a message</string>
+    <string name="send_message">send message</string>
+    <string name="send_image">send image</string>
+    <string name="send_voice_message">send voice message</string>
 </resources>

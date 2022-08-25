@@ -86,14 +86,14 @@
             android:id="@+id/messages_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:reverseLayout="true"
-            app:stackFromEnd="true"
-            android:orientation="vertical"/>
+            app:stackFromEnd="true" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -110,9 +110,9 @@
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="@dimen/_5sdp"
+                android:contentDescription="@string/send_message"
                 android:padding="@dimen/_3sdp"
                 android:src="@drawable/plus"
-                android:contentDescription="@string/send_message"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -124,9 +124,9 @@
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="@dimen/_5sdp"
+                android:contentDescription="@string/send_image"
                 android:padding="@dimen/_3sdp"
                 android:src="@drawable/camera"
-                android:contentDescription="@string/send_image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/voice_layout"
                 app:layout_constraintTop_toTopOf="parent"
@@ -146,8 +146,8 @@
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_margin="@dimen/_5sdp"
-                    android:padding="@dimen/_3sdp"
                     android:contentDescription="@string/send_voice_message"
+                    android:padding="@dimen/_3sdp"
                     android:src="@drawable/mic"
                     app:tint="@color/purple_500" />
 
@@ -160,14 +160,16 @@
                     app:lottie_fileName="voice_recording_now.json"
                     app:lottie_loop="true" />
             </LinearLayout>
+
             <EditText
                 android:id="@+id/message_edit_text"
                 android:layout_width="@dimen/_180sdp"
                 android:layout_height="@dimen/_40sdp"
-                android:hint="@string/type_a_message"
-                android:padding="@dimen/_10sdp"
-                android:inputType="text"
                 android:background="@drawable/draw_border_medium_white"
+                android:hint="@string/type_a_message"
+                android:inputType="text"
+                android:padding="@dimen/_10sdp"
+                android:autofillHints="creditCardExpirationMonth"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/add_new_message_img"
                 app:layout_constraintStart_toEndOf="@+id/camera_btn"
