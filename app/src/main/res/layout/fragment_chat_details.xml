@@ -112,7 +112,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:contentDescription="@string/send_message"
                 android:padding="@dimen/_3sdp"
-                android:src="@drawable/plus"
+                android:src="@drawable/ic_send"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

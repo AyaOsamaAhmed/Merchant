@@ -3,8 +3,10 @@ package com.rbt.merchant.presentation.fragment.home.main.chat
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.graphics.drawable.InsetDrawable
+import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Build
 import android.os.Bundle
@@ -35,6 +37,7 @@ import com.rbt.merchant.presentation.ui.MainActivity
 import com.rbt.merchant.utils.common.CommonFunction
 import com.rbt.merchant.utils.common.Permissions
 import com.rbt.merchant.utils.permissionRequestList
+import java.io.File
 import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
@@ -55,8 +58,10 @@ class ChatDetailsFragment : Fragment() {
 
     // recorder
     private var output: String? = null
+    private var fileName : String? = null
     private var mediaRecorder: MediaRecorder? = null
     private var isRecording: Boolean = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -189,8 +194,9 @@ class ChatDetailsFragment : Fragment() {
 
     private fun startRecording() {
         try {
+            fileName = "/recorded${Date()}.mp3"
             output =
-                Environment.getExternalStorageDirectory().absolutePath + "/recorded${Date()}.mp3"
+                Environment.getExternalStorageDirectory().absolutePath + fileName
             mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.MIC)
             mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
             mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
@@ -216,9 +222,29 @@ class ChatDetailsFragment : Fragment() {
             isRecording = false
             binding.micRecordingBtn.visibility = View.GONE
             binding.micBtn.visibility = View.VISIBLE
+            addVoiceMessageToList()
         } else {
             Log.d(TAG, "stopRecording: You are not recording right now!")
         }
+    }
+
+    private fun addVoiceMessageToList() {
+        messagesList.add(
+            MessagesModel(
+                viewType = SENDER_LAYOUT,
+                voicePath = getRecordingFilePath(),
+                messageTime = CommonFunction.getCurrentTime()
+            )
+        )
+        adapter.notifyDataSetChanged()
+        binding.messagesList.scrollToPosition(messagesList.size - 1)
+    }
+
+    private fun getRecordingFilePath(): String{
+        val contextWrapper = ContextWrapper(requireContext())
+        val music = contextWrapper.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
+        val recordedFile = File(music,fileName)
+        return recordedFile.path
     }
 
     private fun fetchRecordPermission() {

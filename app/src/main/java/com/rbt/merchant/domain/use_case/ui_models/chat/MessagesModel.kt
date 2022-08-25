@@ -6,6 +6,7 @@ data class MessagesModel (
     /*val sender: String?=null,
     val receiver: String?=null,*/
     val imageURL: String?=null,
+    val voicePath: String?=null,
     val messageTime: String?=null,
     val message: String?=null,
     val messageType: String?=null,

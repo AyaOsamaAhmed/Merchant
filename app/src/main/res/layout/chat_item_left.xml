@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.rbt.merchant.domain.use_case.ui_models.chat.MessagesModel" />
 
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,30 +25,81 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/receive_message_tv"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/message_right_content_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_margin="@dimen/_5sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:paddingStart="@dimen/_7sdp"
-                android:paddingEnd="@dimen/_7sdp"
-                android:text="@{model.message}"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_10sdp"
-                android:textStyle="normal"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Hello, This is meHello, This is meHello, This is meHello, This is meHello, This is meHello, This is me" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/receive_message_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:paddingStart="@dimen/_7sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingEnd="@dimen/_7sdp"
+                    android:text="@{model.message}"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    tools:text="Hello, This is meHello, This is meHello, This is meHello, This is meHello, This is meHello, This is me" />
+
+                <ImageView
+                    android:id="@+id/receiver_message_img"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="@dimen/_250sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:contentDescription="@string/image"
+                    android:visibility="gone"
+                    android:paddingStart="@dimen/_7sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingEnd="@dimen/_7sdp"
+                    tools:src="@tools:sample/avatars" />
+                <LinearLayout
+                    android:id="@+id/message_voice_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_7sdp"
+                    android:paddingStart="@dimen/_7sdp"
+                    android:orientation="horizontal">
+                    <SeekBar
+                        android:id="@+id/voice_seek_bar"
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="@color/white"
+                        />
+                    <ImageView
+                        android:id="@+id/voice_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        app:tint="@color/white"
+                        android:src="@drawable/ic_play_arrow"/>
+                    <ImageView
+                        android:id="@+id/voice_pause"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        app:tint="@color/gray"
+                        android:visibility="gone"
+                        android:src="@drawable/ic_pause"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/receive_message_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/receive_message_tv"
+                android:layout_alignBottom="@+id/message_right_content_layout"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:padding="@dimen/_5sdp"
@@ -57,7 +110,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/receive_message_tv"
+                app:layout_constraintTop_toBottomOf="@+id/message_right_content_layout"
                 tools:text="02:05pm" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
