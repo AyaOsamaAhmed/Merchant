@@ -24,95 +24,106 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/message_content_layout"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/send_message_tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_5sdp"
+                android:paddingStart="@dimen/_7sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_7sdp"
+                android:text="@{model.message}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/send_message_time_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Hello, This is meHello, This is meHello, This is meHello, This is meHello, This is meHello, This is me" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/img_card"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:paddingStart="@dimen/_7sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_7sdp"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/send_message_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:paddingStart="@dimen/_7sdp"
-                    android:paddingTop="@dimen/_3sdp"
-                    android:paddingEnd="@dimen/_7sdp"
-                    android:text="@{model.message}"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="normal"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Hello, This is meHello, This is meHello, This is meHello, This is meHello, This is meHello, This is me" />
-
                 <ImageView
                     android:id="@+id/send_message_img"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_250sdp"
-                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:contentDescription="image"
-                    android:visibility="gone"
-                    android:paddingStart="@dimen/_7sdp"
-                    android:paddingTop="@dimen/_3sdp"
-                    android:paddingEnd="@dimen/_7sdp"
+                    android:scaleType="fitXY"
                     tools:src="@tools:sample/avatars" />
-                <LinearLayout
-                    android:id="@+id/message_voice_layout"
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/message_voice_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_7sdp"
+                android:paddingEnd="@dimen/_7sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/send_message_time_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <SeekBar
+                    android:id="@+id/voice_seek_bar"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/voice_play"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_play_arrow"
+                    app:tint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/voice_pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_pause"
                     android:visibility="gone"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:paddingEnd="@dimen/_7sdp"
-                    android:paddingStart="@dimen/_7sdp"
-                    android:orientation="horizontal">
-                    <SeekBar
-                        android:id="@+id/voice_seek_bar"
-                        android:layout_width="@dimen/_200sdp"
-                        android:layout_height="wrap_content"
-                        android:thumbTint="@color/white"
-                        />
-                    <ImageView
-                        android:id="@+id/voice_play"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/_5sdp"
-                        app:tint="@color/white"
-                        android:src="@drawable/ic_play_arrow"/>
-                    <ImageView
-                        android:id="@+id/voice_pause"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/_5sdp"
-                        app:tint="@color/gray"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_pause"/>
-                </LinearLayout>
+                    app:tint="@color/gray" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/send_message_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/message_content_layout"
                 android:layout_alignParentEnd="true"
+                android:elevation="@dimen/_5sdp"
                 android:padding="@dimen/_5sdp"
                 android:text="@{model.messageTime}"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/fab_button"
                 android:textSize="@dimen/_8sdp"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/message_content_layout"
                 tools:text="02:05pm" />
 
             <ImageView
@@ -122,10 +133,11 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:padding="@dimen/_5sdp"
                 android:src="@drawable/double_tick"
+                android:elevation="@dimen/_5sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/message_content_layout"
-                app:tint="@color/light_gray" />
+                app:layout_constraintTop_toTopOf="@+id/send_message_time_tv"
+                app:tint="@color/fab_button" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

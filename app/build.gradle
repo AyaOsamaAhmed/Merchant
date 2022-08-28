@@ -7,7 +7,9 @@ plugins {
     id 'kotlin-parcelize'
 }
 apply plugin: 'kotlin-android'
-
+configurations.all {
+    resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
+}
 android {
     compileSdk 32
 
@@ -66,7 +68,8 @@ dependencies {
     // Sd - Dp
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     //coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
     //ktor
@@ -77,9 +80,10 @@ dependencies {
     implementation "io.ktor:ktor-client-serialization:$ktorVersion"
     implementation "io.ktor:ktor-client-logging-jvm:$ktorVersion"
     implementation 'com.google.code.gson:gson:2.9.1'
-
     //pinview
     implementation 'io.github.chaosleung:pinview:1.4.4'
     //FusedLocationProvider
     implementation 'com.google.android.gms:play-services-location:20.0.0'
+    //Image Selector
+    implementation 'com.vincent.filepicker:MultiTypeFilePicker:1.0.8'
 }

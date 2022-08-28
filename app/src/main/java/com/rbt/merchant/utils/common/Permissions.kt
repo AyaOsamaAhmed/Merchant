@@ -54,15 +54,49 @@ object Permissions {
         permissionRequestList.add(Manifest.permission.RECORD_AUDIO)
     }
 
-    fun requestRecordingAndStorage(activity: Activity,permissions: Array<String>) {
-        ActivityCompat.requestPermissions(activity,permissions,1)
+    fun isCameraOk(context: Context?): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context!!,
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    fun requestCamera() {
+        permissionRequestList.add(Manifest.permission.CAMERA)
+    }
+
+    fun requestRecordingAndStorage(activity: Activity, permissions: Array<String>) {
+        ActivityCompat.requestPermissions(activity, permissions, 1)
     }
 
 
-    fun isRecordingAndStorageOk(context: Context?, permissions: Array<String>): Boolean{
-        if(context != null && permissions.isNotEmpty()){
-            for (permission in permissions){
-                if(ActivityCompat.checkSelfPermission(context,permission) == PackageManager.PERMISSION_GRANTED){
+    fun isRecordingAndStorageOk(context: Context?, permissions: Array<String>): Boolean {
+        if (context != null && permissions.isNotEmpty()) {
+            for (permission in permissions) {
+                if (ActivityCompat.checkSelfPermission(
+                        context,
+                        permission
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    fun requestCameraAndStorage(activity: Activity, permissions: Array<String>) {
+        ActivityCompat.requestPermissions(activity, permissions, 1)
+    }
+
+    fun isCameraAndStorageOk(context: Context?, permissions: Array<String>): Boolean {
+        if (context != null && permissions.isNotEmpty()) {
+            for (permission in permissions) {
+                if (ActivityCompat.checkSelfPermission(
+                        context,
+                        permission
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
                     return true
                 }
             }

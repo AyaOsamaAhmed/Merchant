@@ -1,5 +1,6 @@
 package com.rbt.merchant.presentation.fragment.home.main.chat
 
+import android.content.Context
 import android.media.MediaPlayer
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.SeekBar
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.rbt.merchant.databinding.ChatItemLeftBinding
 import com.rbt.merchant.databinding.ChatItemRightBinding
 import com.rbt.merchant.databinding.ChatTimeItemBinding
@@ -33,9 +35,11 @@ class MessagesAdapter :
     private var isPlaying: Boolean = false
     private var seekbarHandler: Handler? = null
     private var updateSeekbar: Runnable? = null
+    private var context: Context? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
+        context = parent.context
         bindingSend = ChatItemRightBinding.inflate(layoutInflater, parent, false)
         bindingReceive = ChatItemLeftBinding.inflate(layoutInflater, parent, false)
         bindingTime = ChatTimeItemBinding.inflate(layoutInflater, parent, false)
@@ -106,7 +110,7 @@ class MessagesAdapter :
             itemRowBinding.model = item
             if (!item.voicePath.isNullOrEmpty()) {
                 itemRowBinding.messageVoiceLayout.visibility = View.VISIBLE
-                itemRowBinding.sendMessageImg.visibility = View.GONE
+                itemRowBinding.imgCard.visibility = View.GONE
                 itemRowBinding.sendMessageTv.visibility = View.GONE
                 itemRowBinding.voicePlay.setOnClickListener {
                     seekbarHandler = Handler()
@@ -130,6 +134,17 @@ class MessagesAdapter :
                 }
 
             }
+            if(!item.imageURL.isNullOrEmpty()){
+                itemRowBinding.messageVoiceLayout.visibility = View.GONE
+                itemRowBinding.imgCard.visibility = View.VISIBLE
+                itemRowBinding.sendMessageTv.visibility = View.GONE
+                Glide.with(context!!).load(item.imageURL).into(itemRowBinding.sendMessageImg)
+            }
+            if(!item.message.isNullOrEmpty()){
+                itemRowBinding.messageVoiceLayout.visibility = View.GONE
+                itemRowBinding.imgCard.visibility = View.GONE
+                itemRowBinding.sendMessageTv.visibility = View.VISIBLE
+            }
             itemRowBinding.executePendingBindings()
         }
     }
@@ -139,6 +154,43 @@ class MessagesAdapter :
         var itemRowBinding: ChatItemLeftBinding = binding
         fun bind(item: MessagesModel) {
             itemRowBinding.model = item
+            if (!item.voicePath.isNullOrEmpty()) {
+                itemRowBinding.messageVoiceLayout.visibility = View.VISIBLE
+                itemRowBinding.imgCard.visibility = View.GONE
+                itemRowBinding.receiveMessageTv.visibility = View.GONE
+                itemRowBinding.voicePlay.setOnClickListener {
+                    seekbarHandler = Handler()
+                    Log.d(TAG, "bind: filePath: ${item.voicePath}")
+                    mediaPlayer?.setDataSource(item.voicePath)
+                    mediaPlayer?.prepare()
+                    itemRowBinding.voicePause.visibility = View.VISIBLE
+                    itemRowBinding.voicePlay.visibility = View.GONE
+                    mediaPlayer?.start()
+                    itemRowBinding.voiceSeekBar.max = mediaPlayer!!.duration
+                    updateRunnable(itemRowBinding.voiceSeekBar)
+                    itemRowBinding.voiceSeekBar.postDelayed(updateSeekbar, 0)
+                }
+                itemRowBinding.voicePause.setOnClickListener {
+                    itemRowBinding.voicePause.visibility = View.GONE
+                    itemRowBinding.voicePlay.visibility = View.VISIBLE
+                    seekbarHandler?.removeCallbacks(updateSeekbar!!)
+                    mediaPlayer?.stop()
+                    mediaPlayer?.release()
+                    mediaPlayer = null
+                }
+
+            }
+            if(!item.imageURL.isNullOrEmpty()){
+                itemRowBinding.messageVoiceLayout.visibility = View.GONE
+                itemRowBinding.imgCard.visibility = View.VISIBLE
+                itemRowBinding.receiveMessageTv.visibility = View.GONE
+                Glide.with(context!!).load(item.imageURL).into(itemRowBinding.receiverMessageImg)
+            }
+            if(!item.message.isNullOrEmpty()){
+                itemRowBinding.messageVoiceLayout.visibility = View.GONE
+                itemRowBinding.imgCard.visibility = View.GONE
+                itemRowBinding.receiveMessageTv.visibility = View.VISIBLE
+            }
             itemRowBinding.executePendingBindings()
         }
     }

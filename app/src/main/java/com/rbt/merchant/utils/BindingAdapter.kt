@@ -40,7 +40,7 @@ fun setGlideImageUrl(image: ImageView, url: String, progressBar: ProgressBar?) {
                 return false
             }
         })
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
+      //  .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(image)
 }
 
