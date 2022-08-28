@@ -1,35 +1,23 @@
 package com.rbt.merchant.presentation.fragment.home.main.chat
 
 import android.Manifest
-import android.annotation.SuppressLint
-import android.content.Context
+import android.app.AlertDialog
 import android.content.ContextWrapper
 import android.content.pm.PackageManager
-import android.graphics.drawable.InsetDrawable
-import android.media.MediaPlayer
 import android.media.MediaRecorder
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
-import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.MenuRes
-import androidx.appcompat.view.ContextThemeWrapper
-import androidx.appcompat.view.menu.MenuBuilder
-import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
-import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentChatDetailsBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.domain.use_case.ui_models.chat.MessagesModel
@@ -51,7 +39,9 @@ class ChatDetailsFragment : Fragment() {
     private lateinit var binding: FragmentChatDetailsBinding
     private var messagesList = ArrayList<MessagesModel>()
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
+    private lateinit var permissionList: Array<String>
     private var isRecordPermissionGranted = false
+    private var isRecordAndStoragePermissionGranted = false
     private var isWritePermissionGranted = false
     private var isReadPermissionGranted = false
     private lateinit var adapter: MessagesAdapter
@@ -70,6 +60,11 @@ class ChatDetailsFragment : Fragment() {
         binding = FragmentChatDetailsBinding.inflate(inflater, container, false)
         (activity as MainActivity?)!!.showNavBottom(false)
         (activity as MainActivity?)!!.showNavDrawer(false)
+        permissionList = arrayOf(
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
         val chat = arguments?.getParcelable<Chat>("Chat")
         binding.model = chat
         activity?.onBackPressedDispatcher?.addCallback(
@@ -83,6 +78,10 @@ class ChatDetailsFragment : Fragment() {
         permissionLauncher =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
                 Log.d(TAG, "onCreateView: permissionLauncher ")
+                /*isRecordAndStoragePermissionGranted =
+                    (permissions[Manifest.permission.RECORD_AUDIO] ==true
+                            && permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] == true
+                            && permissions[Manifest.permission.READ_EXTERNAL_STORAGE] == true) ?: isRecordAndStoragePermissionGranted*/
                 isRecordPermissionGranted =
                     permissions[Manifest.permission.RECORD_AUDIO] ?: isRecordPermissionGranted
                 isWritePermissionGranted = permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE]
@@ -156,7 +155,7 @@ class ChatDetailsFragment : Fragment() {
         }
         binding.micBtn.setOnClickListener {
             Log.d(TAG, "onViewCreated: $isRecording")
-            if (Permissions.isRecordingOk(requireContext()) && Permissions.isStorageOk(
+            /*if (Permissions.isRecordingOk(requireContext()) && Permissions.isStorageOk(
                     requireContext()
                 )
             ) {
@@ -171,6 +170,40 @@ class ChatDetailsFragment : Fragment() {
                     fetchRecordPermission()
                 else if (!isReadPermissionGranted || !isWritePermissionGranted)
                     fetchStoragePermission()
+            }*/
+            if(Permissions.isRecordingAndStorageOk(context,permissionList)){
+                Log.d(TAG, "onViewCreated: micBtn clicked and has recorded permission")
+                if (Permissions.isRecordingOk(requireContext()) && Permissions.isStorageOk(
+                        requireContext()
+                    )
+                ) {
+                    if (isRecording) {
+                        stopRecording()
+                    } else {
+                        startRecording()
+                    }
+                } else {
+                    Log.d(TAG, "onViewCreated: else ")
+                    if (!isRecordPermissionGranted)
+                        fetchRecordPermission()
+                    else if (!isReadPermissionGranted || !isWritePermissionGranted)
+                        fetchStoragePermission()
+                }
+            }else{
+                AlertDialog.Builder(context)
+                    .setCancelable(true)
+                    .setTitle("App Permission")
+                    .setMessage("This app need to access some permissions")
+                    .setPositiveButton("ok"){ dialog, which ->
+                        Permissions.requestRecordingAndStorage(requireActivity(),permissionList)
+                        dialog.cancel()
+                    }
+                    .setNegativeButton("cancel"){ dialog, which ->
+                        dialog.cancel()
+                    }
+                    .create()
+                    .show()
+
             }
         }
         binding.cameraBtn.setOnClickListener {
@@ -243,7 +276,7 @@ class ChatDetailsFragment : Fragment() {
     private fun getRecordingFilePath(): String{
         val contextWrapper = ContextWrapper(requireContext())
         val music = contextWrapper.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
-        val recordedFile = File(music,fileName)
+        val recordedFile = File(music,fileName!!)
         return recordedFile.path
     }
 

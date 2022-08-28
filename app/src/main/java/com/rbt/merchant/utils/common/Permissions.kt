@@ -53,4 +53,20 @@ object Permissions {
     fun requestRecording() {
         permissionRequestList.add(Manifest.permission.RECORD_AUDIO)
     }
+
+    fun requestRecordingAndStorage(activity: Activity,permissions: Array<String>) {
+        ActivityCompat.requestPermissions(activity,permissions,1)
+    }
+
+
+    fun isRecordingAndStorageOk(context: Context?, permissions: Array<String>): Boolean{
+        if(context != null && permissions.isNotEmpty()){
+            for (permission in permissions){
+                if(ActivityCompat.checkSelfPermission(context,permission) == PackageManager.PERMISSION_GRANTED){
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }

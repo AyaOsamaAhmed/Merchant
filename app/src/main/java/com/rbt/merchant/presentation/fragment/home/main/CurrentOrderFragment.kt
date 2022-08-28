@@ -1,6 +1,7 @@
 package com.rbt.merchant.presentation.fragment.home.main
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
@@ -76,7 +77,20 @@ class CurrentOrderFragment : Fragment() {
                 Log.d(TAG, "getCurrentLocation: longitude: ${address[0].longitude}")
             }
         }else {
-            fetchLocationPermission()
+            AlertDialog.Builder(context)
+                .setCancelable(true)
+                .setTitle("App Permission")
+                .setMessage("This app need to access your current location")
+                .setPositiveButton("ok"){ dialog, which ->
+                    fetchLocationPermission()
+                    dialog.cancel()
+                }
+                .setNegativeButton("cancel"){ dialog, which ->
+                    dialog.cancel()
+                }
+                .create()
+                .show()
+
             Log.d(TAG, "onCreateView: ")
         }
     }
