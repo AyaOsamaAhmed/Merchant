@@ -54,13 +54,7 @@ class CurrentOrderFragment : Fragment() {
                     getCurrentLocation()
                 }
             }
-        if (Permissions.isLocationOk(requireContext())) {
-            Log.d(TAG, "onCreateView: Permissions.isLocationOk(requireContext())")
-            getCurrentLocation()
-        } else {
-            fetchLocationPermission()
-            Log.d(TAG, "onCreateView: ")
-        }
+        getCurrentLocation()
         return binding.root
     }
 
@@ -81,6 +75,9 @@ class CurrentOrderFragment : Fragment() {
                 Log.d(TAG, "getCurrentLocation: latitude: ${address[0].latitude}")
                 Log.d(TAG, "getCurrentLocation: longitude: ${address[0].longitude}")
             }
+        }else {
+            fetchLocationPermission()
+            Log.d(TAG, "onCreateView: ")
         }
     }
 
