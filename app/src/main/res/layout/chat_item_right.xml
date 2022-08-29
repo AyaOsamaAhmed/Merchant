@@ -107,7 +107,7 @@
                     android:padding="@dimen/_5sdp"
                     android:src="@drawable/ic_pause"
                     android:visibility="gone"
-                    app:tint="@color/gray" />
+                    app:tint="@color/white" />
             </LinearLayout>
 
             <TextView

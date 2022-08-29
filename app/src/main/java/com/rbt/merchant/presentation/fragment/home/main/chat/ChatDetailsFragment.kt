@@ -8,6 +8,7 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -17,6 +18,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -34,6 +36,8 @@ import com.vincent.filepicker.activity.ImagePickActivity
 import com.vincent.filepicker.filter.entity.ImageFile
 import java.io.File
 import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.util.*
 
 
@@ -58,7 +62,7 @@ class ChatDetailsFragment : Fragment() {
     private var fileName: String? = null
     private var mediaRecorder: MediaRecorder? = null
     private var isRecording: Boolean = false
-
+    private val path = "/Merchant/recorded"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -93,12 +97,11 @@ class ChatDetailsFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                // There are no request codes
-                //val data: Intent? = result.data
                 val list: ArrayList<ImageFile> =
                     result.data?.getParcelableArrayListExtra(Constant.RESULT_PICK_IMAGE)!!
                 Log.d(TAG, "onViewCreated: image selected: ${list.size}")
@@ -112,42 +115,48 @@ class ChatDetailsFragment : Fragment() {
             MessagesModel(
                 viewType = SENDER_LAYOUT,
                 message = "This is Sender",
-                messageTime = "02:00pm"
+                messageTime = "02:00pm",
+                timeStamp = Date().toString()
             )
         )
         messagesList.add(
             MessagesModel(
                 viewType = RECEIVER_LAYOUT,
                 message = "This is Receiver",
-                messageTime = "02:01pm"
+                messageTime = "02:01pm",
+                timeStamp = Date().toString()
             )
         )
         messagesList.add(
             MessagesModel(
                 viewType = SENDER_LAYOUT,
                 message = "This is Sender",
-                messageTime = "02:10pm"
+                messageTime = "02:10pm",
+                timeStamp = Date().toString()
             )
         )
         messagesList.add(
             MessagesModel(
                 viewType = RECEIVER_LAYOUT,
                 message = "This is Receiver",
-                messageTime = "02:30pm"
+                messageTime = "02:30pm",
+                timeStamp = Date().toString()
             )
         )
         messagesList.add(
             MessagesModel(
                 viewType = SENDER_LAYOUT,
                 message = "This is Sender",
-                messageTime = "02:40pm"
+                messageTime = "02:40pm",
+                timeStamp = Date().toString()
             )
         )
         messagesList.add(
             MessagesModel(
                 viewType = RECEIVER_LAYOUT,
                 message = "This is Receiver",
-                messageTime = "02:57pm"
+                messageTime = "02:57pm",
+                timeStamp = Date().toString()
             )
         )
         binding.addNewMessageImg.setOnClickListener {
@@ -252,14 +261,22 @@ class ChatDetailsFragment : Fragment() {
         binding.messagesList.adapter = adapter
         adapter.notifyDataSetChanged()
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun startRecording() {
         try {
             fileName = "/recorded${Date()}.mp3"
-            output =
-                Environment.getExternalStorageDirectory().absolutePath + fileName
+            output = Environment.getExternalStorageDirectory().absolutePath + fileName
+            val appDir =File(Environment.getExternalStorageDirectory().path + path)
+            appDir.mkdirs()
+            if(appDir.exists()){
+                Log.d(TAG, "startRecording: dir is exist")
+                output = appDir.path + fileName
+            }else{
+                Log.d(TAG, "startRecording: dir is not exist")
+            }
             mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.MIC)
             mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
             mediaRecorder?.setOutputFile(output)
             mediaRecorder?.prepare()
             mediaRecorder?.start()
@@ -292,7 +309,7 @@ class ChatDetailsFragment : Fragment() {
         messagesList.add(
             MessagesModel(
                 viewType = SENDER_LAYOUT,
-                voicePath = getRecordingFilePath(),
+                voicePath = output,
                 messageTime = CommonFunction.getCurrentTime()
             )
         )
@@ -311,13 +328,14 @@ class ChatDetailsFragment : Fragment() {
         binding.messagesList.scrollToPosition(messagesList.size - 1)
     }
 
-    private fun getRecordingFilePath(): String {
+    /*private fun getRecordingFilePath(): String {
         val contextWrapper = ContextWrapper(requireContext())
-        val music = contextWrapper.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
+        val music = contextWrapper.getExternalFilesDir(Environment.getExternalStorageDirectory().absolutePath)
         val recordedFile = File(music, fileName!!)
+        Log.d(TAG, "getRecordingFilePath: recordedFile.path ${recordedFile.path}")
         return recordedFile.path
-    }
-
+    }*/
+    // fetch permissions needed at this fragment
     private fun fetchRecordPermission() {
         isRecordPermissionGranted = ContextCompat.checkSelfPermission(
             requireContext(), Manifest.permission.RECORD_AUDIO
@@ -340,7 +358,6 @@ class ChatDetailsFragment : Fragment() {
             permissionLauncher.launch(permissionRequestList.toTypedArray())
         }
     }
-
     private fun fetchStoragePermission() {
         isReadPermissionGranted = Permissions.isStorageOk(requireContext())
         isWritePermissionGranted = Permissions.isStorageOk(requireContext())
