@@ -4,13 +4,19 @@ import android.content.Context
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.SeekBar
+import androidx.annotation.RequiresApi
+import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +25,10 @@ import com.rbt.merchant.databinding.ChatItemLeftBinding
 import com.rbt.merchant.databinding.ChatItemRightBinding
 import com.rbt.merchant.databinding.ChatTimeItemBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.MessagesModel
+import com.rbt.merchant.presentation.fragment.splash_screen.SplashFragmentDirections
+import com.rbt.merchant.utils.sharedPref
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import java.io.File
 import java.io.FileInputStream
 
@@ -26,8 +36,8 @@ import java.io.FileInputStream
 private const val SENDER_LAYOUT = 1
 private const val RECEIVER_LAYOUT = 2
 private const val TIME_LAYOUT = 3
-private const val TAG = "MessagesAdapter"
 
+private const val TAG = "MessagesAdapter"
 class MessagesAdapter :
     ListAdapter<MessagesModel, RecyclerView.ViewHolder>(MessagesModelDiffCallback()) {
     private lateinit var listener: OnItemClickListener
@@ -37,9 +47,6 @@ class MessagesAdapter :
 
     // player
     private var mediaPlayer: MediaPlayer? = null
-    private var isPlaying: Boolean = false
-    private var seekbarHandler: Handler? = null
-    private var updateSeekbar: Runnable? = null
     private var context: Context? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -48,7 +55,6 @@ class MessagesAdapter :
         bindingSend = ChatItemRightBinding.inflate(layoutInflater, parent, false)
         bindingReceive = ChatItemLeftBinding.inflate(layoutInflater, parent, false)
         bindingTime = ChatTimeItemBinding.inflate(layoutInflater, parent, false)
-        seekbarHandler = Handler()
         mediaPlayer = MediaPlayer()
         return when (viewType) {
             SENDER_LAYOUT -> {
@@ -111,7 +117,8 @@ class MessagesAdapter :
     }
 
     // inner class impl for 3 layouts
-    inner class SenderViewHolder(binding: ChatItemRightBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class SenderViewHolder(binding: ChatItemRightBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         var itemRowBinding: ChatItemRightBinding = binding
         fun bind(item: MessagesModel) {
             itemRowBinding.model = item
@@ -120,19 +127,19 @@ class MessagesAdapter :
                 itemRowBinding.imgCard.visibility = View.GONE
                 itemRowBinding.sendMessageTv.visibility = View.GONE
                 itemRowBinding.voicePlay.setOnClickListener {
-                    initializeMediaPlayer(item.voicePath,itemRowBinding.voicePlay,itemRowBinding.voicePause)
+                    if (mediaPlayer!!.isPlaying) {
+                        stopPlayRecord(itemRowBinding.voicePlay, itemRowBinding.voicePause)
+                    } else {
+                        initializeMediaPlayer(
+                            item.voicePath,
+                            itemRowBinding.voicePlay,
+                            itemRowBinding.voicePause
+                        )
+                    }
                     Log.d(TAG, "bind: filePath: ${item.voicePath}")
-                    /*itemRowBinding.voicePause.visibility = View.VISIBLE
-                    itemRowBinding.voicePlay.visibility = View.GONE*/
-                    itemRowBinding.voiceSeekBar.max = mediaPlayer?.duration!!
-                    itemRowBinding.voiceSeekBar.postDelayed(updateSeekbar, 0)
-                    updateRunnable(itemRowBinding.voiceSeekBar)
                 }
                 itemRowBinding.voicePause.setOnClickListener {
-                    /*itemRowBinding.voicePause.visibility = View.GONE
-                    itemRowBinding.voicePlay.visibility = View.VISIBLE*/
-                    seekbarHandler?.removeCallbacks(updateSeekbar!!)
-                    stopPlayRecord(itemRowBinding.voicePlay,itemRowBinding.voicePause)
+                    stopPlayRecord(itemRowBinding.voicePlay, itemRowBinding.voicePause)
                 }
             }
             if (!item.imageURL.isNullOrEmpty()) {
@@ -150,7 +157,8 @@ class MessagesAdapter :
         }
     }
 
-    inner class ReceiverViewHolder(binding: ChatItemLeftBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ReceiverViewHolder(binding: ChatItemLeftBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         var itemRowBinding: ChatItemLeftBinding = binding
         fun bind(item: MessagesModel) {
             itemRowBinding.model = item
@@ -159,19 +167,15 @@ class MessagesAdapter :
                 itemRowBinding.imgCard.visibility = View.GONE
                 itemRowBinding.receiveMessageTv.visibility = View.GONE
                 itemRowBinding.voicePlay.setOnClickListener {
-                    initializeMediaPlayer(item.voicePath,itemRowBinding.voicePlay,itemRowBinding.voicePause)
+                    initializeMediaPlayer(
+                        item.voicePath,
+                        itemRowBinding.voicePlay,
+                        itemRowBinding.voicePause
+                    )
                     Log.d(TAG, "bind: filePath: ${item.voicePath}")
-                  /*  itemRowBinding.voicePause.visibility = View.VISIBLE
-                    itemRowBinding.voicePlay.visibility = View.GONE*/
-                    itemRowBinding.voiceSeekBar.max = mediaPlayer!!.duration
-                    updateRunnable(itemRowBinding.voiceSeekBar)
-                    itemRowBinding.voiceSeekBar.postDelayed(updateSeekbar, 0)
                 }
                 itemRowBinding.voicePause.setOnClickListener {
-                    /*itemRowBinding.voicePause.visibility = View.GONE
-                    itemRowBinding.voicePlay.visibility = View.VISIBLE*/
-                    seekbarHandler?.removeCallbacks(updateSeekbar!!)
-                    stopPlayRecord(itemRowBinding.voicePlay,itemRowBinding.voicePause)
+                    stopPlayRecord(itemRowBinding.voicePlay, itemRowBinding.voicePause)
                 }
 
             }
@@ -190,7 +194,8 @@ class MessagesAdapter :
         }
     }
 
-    inner class TimeViewHolder(binding: ChatTimeItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class TimeViewHolder(binding: ChatTimeItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         var itemRowBinding: ChatTimeItemBinding = binding
         fun bind(item: MessagesModel) {
             itemRowBinding.model = item
@@ -198,15 +203,7 @@ class MessagesAdapter :
         }
     }
 
-    private fun updateRunnable(playerSeekbar: SeekBar) {
-        updateSeekbar = Runnable {
-            mediaPlayer!!.reset()
-            playerSeekbar.progress = mediaPlayer!!.currentPosition
-            seekbarHandler!!.postDelayed(updateSeekbar!!, 0)
-        }
-    }
-
-    private fun initializeMediaPlayer(fileURL: String,play_btn:ImageView,pauseBtn:ImageView) {
+    private fun initializeMediaPlayer(fileURL: String, playBtn: ImageView, pauseBtn: ImageView) {
         mediaPlayer?.setAudioAttributes(
             AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_MEDIA)
@@ -214,42 +211,37 @@ class MessagesAdapter :
                 .setLegacyStreamType(AudioManager.STREAM_MUSIC)
                 .build()
         )
+        mediaPlayer!!.isLooping = false
         mediaPlayer!!.setOnCompletionListener { mp ->
             if (mp != null) {
-                stopPlayRecord(play_btn,pauseBtn)
+                stopPlayRecord(playBtn, pauseBtn)
             }
         }
         try {
-            startPlayRecord(fileURL,play_btn,pauseBtn)
+            if (mediaPlayer!!.isPlaying) {
+                mediaPlayer!!.stop()
+            }
+            startPlayRecord(fileURL, playBtn, pauseBtn)
         } catch (e: Exception) {
             Log.d(TAG, "initializeMediaPlayer: ERROR: ${e.message}")
         }
     }
 
-    private fun stopPlayRecord(play_btn:ImageView,pauseBtn:ImageView) {
-        if (isPlaying) {
-            pauseBtn.visibility = View.GONE
-            play_btn.visibility = View.VISIBLE
-            mediaPlayer!!.stop()
-            mediaPlayer!!.reset()
-            mediaPlayer!!.release()
-            mediaPlayer = MediaPlayer()
-            isPlaying = false
-        }
+    private fun stopPlayRecord(playBtn: ImageView, pauseBtn: ImageView) {
+        pauseBtn.visibility = View.GONE
+        playBtn.visibility = View.VISIBLE
+        mediaPlayer!!.stop()
     }
 
-    private fun startPlayRecord(fileURL: String,play_btn:ImageView,pauseBtn:ImageView) {
+    private fun startPlayRecord(fileURL: String, playBtn: ImageView, pauseBtn: ImageView) {
         val tempFile = File(fileURL)
         val fis = FileInputStream(tempFile)
         pauseBtn.visibility = View.VISIBLE
-        play_btn.visibility = View.GONE
-        if (!isPlaying) {
-            mediaPlayer!!.reset()
-            mediaPlayer!!.setDataSource(fis.fd)
-            mediaPlayer!!.prepare()
-            mediaPlayer!!.start()
-            isPlaying = true
-        }
+        playBtn.visibility = View.GONE
+        mediaPlayer!!.reset()
+        mediaPlayer!!.setDataSource(fis.fd)
+        mediaPlayer!!.prepare()
+        mediaPlayer!!.start()
     }
 
     interface OnItemClickListener {
