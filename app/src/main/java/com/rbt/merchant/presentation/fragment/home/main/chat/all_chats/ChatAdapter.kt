@@ -1,4 +1,4 @@
-package com.rbt.merchant.presentation.fragment.home.main.chat
+package com.rbt.merchant.presentation.fragment.home.main.chat.all_chats
 
 
 import android.content.Context
@@ -8,20 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.ItemChatBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
-import com.rbt.merchant.utils.common.CommonFunction
 
 private const val TAG = "ChatAdapter"
 
@@ -52,7 +46,6 @@ class ChatAdapter : ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallb
 
     class ViewHolder(binding: ItemChatBinding) : RecyclerView.ViewHolder(binding.root) {
         private var itemRowBinding: ItemChatBinding = binding
-
         @RequiresApi(Build.VERSION_CODES.M)
         fun bind(obj: Chat, context: Context) {
             Log.d(TAG, "bind: chat: ${obj.time}")

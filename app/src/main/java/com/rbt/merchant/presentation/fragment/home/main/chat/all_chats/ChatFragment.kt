@@ -1,4 +1,4 @@
-package com.rbt.merchant.presentation.fragment.home.main.chat
+package com.rbt.merchant.presentation.fragment.home.main.chat.all_chats
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.fragment.home.main.chat.ChatFragment">
+        tools:context=".presentation.fragment.home.main.chat.all_chats.ChatFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/offered_chats_rv"

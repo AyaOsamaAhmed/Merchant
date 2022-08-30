@@ -11,7 +11,6 @@ import android.util.TypedValue
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ProgressBar
 import android.widget.Spinner
 import androidx.annotation.MenuRes
 import androidx.appcompat.view.ContextThemeWrapper
@@ -19,17 +18,11 @@ import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.ActivityMainBinding
-import com.rbt.merchant.presentation.fragment.home.main.ArchiveFragment
-import com.rbt.merchant.presentation.fragment.home.main.CurrentOrderFragment
-import com.rbt.merchant.presentation.fragment.home.main.ProfileFragment
-import com.rbt.merchant.presentation.fragment.home.main.StatisticsFragment
-import com.rbt.merchant.presentation.fragment.home.main.chat.ChatFragment
 import com.rbt.merchant.presentation.fragment.home.side_menu.ProfilesSwitcherAdapter
 import com.rbt.merchant.utils.common.CommonFunction
 import com.rbt.merchant.utils.common.LocaleHelper

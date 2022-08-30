@@ -7,6 +7,9 @@
         <variable
             name="model"
             type="com.rbt.merchant.domain.use_case.ui_models.chat.Chat" />
+        <variable
+            name="viewModel"
+            type="com.rbt.merchant.presentation.fragment.home.main.chat.chat_details.ChatDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
