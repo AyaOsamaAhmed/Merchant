@@ -85,53 +85,41 @@ class ChatDetailsViewModel : ViewModel(){
     private fun initialList(){
         messagesList.add(MessagesModel(viewType = TIME_LAYOUT, timeStamp = "Sun,3-2-2021"))
         messagesList.add(
-            MessagesModel(
-                viewType = SENDER_LAYOUT,
+            MessagesModel(viewType = SENDER_LAYOUT,
                 message = "This is Sender",
                 messageTime = "02:00pm",
-                timeStamp = Date().toString()
-            )
-        )
+                timeStamp = Date().toString()))
         messagesList.add(
-            MessagesModel(
-                viewType = RECEIVER_LAYOUT,
+            MessagesModel(viewType = RECEIVER_LAYOUT,
                 message = "This is Receiver",
                 messageTime = "02:01pm",
-                timeStamp = Date().toString()
-            )
-        )
+                timeStamp = Date().toString()))
         messagesList.add(
-            MessagesModel(
-                viewType = SENDER_LAYOUT,
+            MessagesModel(viewType = SENDER_LAYOUT,
                 message = "This is Sender",
                 messageTime = "02:10pm",
-                timeStamp = Date().toString()
-            )
-        )
+                timeStamp = Date().toString()))
         messagesList.add(
-            MessagesModel(
-                viewType = RECEIVER_LAYOUT,
+            MessagesModel(viewType = RECEIVER_LAYOUT,
                 message = "This is Receiver",
                 messageTime = "02:30pm",
-                timeStamp = Date().toString()
-            )
-        )
+                timeStamp = Date().toString()))
         messagesList.add(
-            MessagesModel(
-                viewType = SENDER_LAYOUT,
+            MessagesModel(viewType = SENDER_LAYOUT,
                 message = "This is Sender",
                 messageTime = "02:40pm",
-                timeStamp = Date().toString()
-            )
-        )
+                timeStamp = Date().toString()))
         messagesList.add(
-            MessagesModel(
-                viewType = RECEIVER_LAYOUT,
+            MessagesModel(viewType = RECEIVER_LAYOUT,
                 message = "This is Receiver",
                 messageTime = "02:57pm",
-                timeStamp = Date().toString()
-            )
-        )
+                timeStamp = Date().toString()))
+        messagesList.add(
+            MessagesModel(viewType = RECEIVER_LAYOUT,
+               // message = "This is Receiver",
+                voicePath = "/storage/emulated/0/Merchant/recorded/recordedTue Aug 30 17:08:07 GMT+02:00 2022.mp3",
+                messageTime = "02:57pm",
+                timeStamp = Date().toString()))
         adapter.submitList(messagesList)
     }
     private fun addVoiceMessageToList( messagesList: RecyclerView) {
@@ -139,9 +127,7 @@ class ChatDetailsViewModel : ViewModel(){
             MessagesModel(
                 viewType = SENDER_LAYOUT,
                 voicePath = output,
-                messageTime = CommonFunction.getCurrentTime()
-            )
-        )
+                messageTime = CommonFunction.getCurrentTime()))
         adapter.notifyDataSetChanged()
         messagesList.scrollToPosition(this.messagesList.size - 1)
     }
@@ -150,9 +136,7 @@ class ChatDetailsViewModel : ViewModel(){
             MessagesModel(
                 viewType = SENDER_LAYOUT,
                 message = message,
-                messageTime = CommonFunction.getCurrentTime()
-            )
-        )
+                messageTime = CommonFunction.getCurrentTime()))
         adapter.notifyDataSetChanged()
         messagesList.scrollToPosition(this.messagesList.size - 1)
         messageEditText.text.clear()
@@ -162,9 +146,7 @@ class ChatDetailsViewModel : ViewModel(){
             MessagesModel(
                 viewType = SENDER_LAYOUT,
                 messageTime = CommonFunction.getCurrentTime(),
-                imageURL = imgURL
-            )
-        )
+                imageURL = imgURL))
         adapter.notifyDataSetChanged()
         messagesList.scrollToPosition(this.messagesList.size - 1)
     }

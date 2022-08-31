@@ -4,19 +4,13 @@ import android.content.Context
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.os.Build
 import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.SeekBar
-import androidx.annotation.RequiresApi
-import androidx.lifecycle.MutableLiveData
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -25,10 +19,6 @@ import com.rbt.merchant.databinding.ChatItemLeftBinding
 import com.rbt.merchant.databinding.ChatItemRightBinding
 import com.rbt.merchant.databinding.ChatTimeItemBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.MessagesModel
-import com.rbt.merchant.presentation.fragment.splash_screen.SplashFragmentDirections
-import com.rbt.merchant.utils.sharedPref
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import java.io.File
 import java.io.FileInputStream
 
@@ -48,6 +38,8 @@ class MessagesAdapter :
     // player
     private var mediaPlayer: MediaPlayer? = null
     private var context: Context? = null
+    private lateinit var runnable:Runnable
+    private var handler: Handler = Handler()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -126,6 +118,19 @@ class MessagesAdapter :
                 itemRowBinding.messageVoiceLayout.visibility = View.VISIBLE
                 itemRowBinding.imgCard.visibility = View.GONE
                 itemRowBinding.sendMessageTv.visibility = View.GONE
+                itemRowBinding.voiceSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                    override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                        if (b) {
+                            mediaPlayer!!.seekTo(i * 1000)
+                        }
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar) {
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar) {
+                    }
+                })
                 itemRowBinding.voicePlay.setOnClickListener {
                     if (mediaPlayer!!.isPlaying) {
                         stopPlayRecord(itemRowBinding.voicePlay, itemRowBinding.voicePause)
@@ -133,7 +138,8 @@ class MessagesAdapter :
                         initializeMediaPlayer(
                             item.voicePath,
                             itemRowBinding.voicePlay,
-                            itemRowBinding.voicePause
+                            itemRowBinding.voicePause,
+                            itemRowBinding.voiceSeekBar
                         )
                     }
                     Log.d(TAG, "bind: filePath: ${item.voicePath}")
@@ -170,7 +176,8 @@ class MessagesAdapter :
                     initializeMediaPlayer(
                         item.voicePath,
                         itemRowBinding.voicePlay,
-                        itemRowBinding.voicePause
+                        itemRowBinding.voicePause,
+                        itemRowBinding.voiceSeekBar
                     )
                     Log.d(TAG, "bind: filePath: ${item.voicePath}")
                 }
@@ -203,7 +210,7 @@ class MessagesAdapter :
         }
     }
 
-    private fun initializeMediaPlayer(fileURL: String, playBtn: ImageView, pauseBtn: ImageView) {
+    private fun initializeMediaPlayer(fileURL: String, playBtn: ImageView, pauseBtn: ImageView,seekBar: SeekBar) {
         mediaPlayer?.setAudioAttributes(
             AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_MEDIA)
@@ -221,7 +228,7 @@ class MessagesAdapter :
             if (mediaPlayer!!.isPlaying) {
                 mediaPlayer!!.stop()
             }
-            startPlayRecord(fileURL, playBtn, pauseBtn)
+            startPlayRecord(fileURL, playBtn, pauseBtn,seekBar)
         } catch (e: Exception) {
             Log.d(TAG, "initializeMediaPlayer: ERROR: ${e.message}")
         }
@@ -233,7 +240,7 @@ class MessagesAdapter :
         mediaPlayer!!.stop()
     }
 
-    private fun startPlayRecord(fileURL: String, playBtn: ImageView, pauseBtn: ImageView) {
+    private fun startPlayRecord(fileURL: String, playBtn: ImageView, pauseBtn: ImageView,seekBar: SeekBar) {
         val tempFile = File(fileURL)
         val fis = FileInputStream(tempFile)
         pauseBtn.visibility = View.VISIBLE
@@ -242,6 +249,16 @@ class MessagesAdapter :
         mediaPlayer!!.setDataSource(fis.fd)
         mediaPlayer!!.prepare()
         mediaPlayer!!.start()
+        initializeSeekBar(seekBar)
+    }
+
+    private fun initializeSeekBar(seekBar: SeekBar) {
+        seekBar.max = mediaPlayer!!.duration
+        runnable = Runnable {
+            seekBar.progress = mediaPlayer!!.currentPosition
+            handler.postDelayed(runnable, 0)
+        }
+        handler.postDelayed(runnable, 0)
     }
 
     interface OnItemClickListener {
