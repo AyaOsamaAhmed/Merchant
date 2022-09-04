@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentChatDetailsBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.domain.use_case.ui_models.chat.MessagesModel
@@ -34,7 +35,6 @@ import com.vincent.filepicker.filter.entity.ImageFile
 import java.util.*
 
 private const val TAG = "ChatDetailsFragment"
-
 class ChatDetailsFragment : Fragment() {
     private lateinit var binding: FragmentChatDetailsBinding
     private val viewModel:ChatDetailsViewModel by lazy {
@@ -55,7 +55,7 @@ class ChatDetailsFragment : Fragment() {
     ): View {
         binding = FragmentChatDetailsBinding.inflate(inflater, container, false)
         (activity as MainActivity?)!!.showNavBottom(false)
-        (activity as MainActivity?)!!.showNavDrawer(false)
+        (activity as MainActivity?)!!.showToolBar(false)
         val chat = arguments?.getParcelable<Chat>("Chat")
         binding.model = chat
         binding.viewModel = viewModel

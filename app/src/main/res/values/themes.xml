@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:textViewStyle">@style/CairoTextViewStyle</item>
     </style>
     <style name="dark_button" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/white</item>
@@ -36,5 +37,8 @@
     <style name="PopupMenu" parent="Widget.MaterialComponents.PopupMenu">
         <item name="android:popupBackground">@android:color/white</item>
         <item name="android:width">@dimen/_150sdp</item>
+    </style>
+    <style name="CairoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/cairo_bold</item>
     </style>
 </resources>
