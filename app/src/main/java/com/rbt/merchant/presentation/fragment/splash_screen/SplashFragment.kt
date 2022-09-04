@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentSplashBinding
+import com.rbt.merchant.presentation.ui.MainActivity
 import com.rbt.merchant.utils.sharedPref
 
 /**
@@ -33,7 +35,6 @@ class SplashFragment : Fragment() {
     ): View {
 
         binding = FragmentSplashBinding.inflate(inflater, container, false)
-
         // Handler check if app has user token in shared preference for 4 sec
         /*
             if null : open phone fragment

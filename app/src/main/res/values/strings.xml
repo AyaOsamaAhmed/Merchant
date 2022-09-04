@@ -33,9 +33,9 @@
     <string name="home_fragment">Home Fragment</string>
     <string name="list_image">list Image</string>
     <string name="store_logo">Store Logo</string>
-    <string name="current_orders">Current Orders</string>
+    <string name="current_orders">Orders</string>
     <string name="home">Home</string>
-    <string name="offered_chats">Offered Chats</string>
+    <string name="offered_chats">Chats</string>
     <string name="statistics">Statistics</string>
     <string name="profile">Profile</string>
     <string name="archive">Archive</string>
@@ -45,4 +45,5 @@
     <string name="send_image">send image</string>
     <string name="send_voice_message">send voice message</string>
     <string name="image">image</string>
+    <string name="chivalry_rbt">Chivalry RBT</string>
 </resources>

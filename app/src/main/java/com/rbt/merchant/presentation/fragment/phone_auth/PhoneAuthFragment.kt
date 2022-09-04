@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.rbt.merchant.databinding.FragmentPhoneAuthBinding
+import com.rbt.merchant.databinding.FragmentSplashBinding
+import com.rbt.merchant.presentation.ui.MainActivity
 import com.rbt.merchant.utils.common.CommonFunction
 
 private const val TAG = "PhoneAuthFragment"

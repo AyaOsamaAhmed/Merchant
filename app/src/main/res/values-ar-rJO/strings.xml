@@ -33,7 +33,7 @@
     <string name="home_fragment">الصفحه الرئيسيه</string>
     <string name="list_image">list Image</string>
     <string name="store_logo">Store Logo</string>
-    <string name="current_orders">الطلبات الحالية</string>
+    <string name="current_orders">الطلبات</string>
     <string name="home">الرئيسية</string>
     <string name="archive">المؤرشفه</string>
     <string name="profile">الصفحه الشخصية</string>
@@ -45,4 +45,5 @@
     <string name="send_image">send image</string>
     <string name="send_voice_message">send voice message</string>
     <string name="image">image</string>
+    <string name="chivalry_rbt">نخوه ربط</string>
 </resources>

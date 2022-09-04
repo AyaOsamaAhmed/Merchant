@@ -65,7 +65,10 @@ class MainActivity : AppCompatActivity(), ShowPinedComponent , NavigationView.On
         profilesAdapter.setProfilesList(profilesList)
         binding.navView.getHeaderView(0).findViewById<Spinner>(R.id.profiles_switcher_spin).adapter = profilesAdapter
         showNavBottom(false)
+        showToolBar(false)
         showNavDrawer(false)
+        showFragmentTitle(false,null)
+        showProfileImage(false)
         binding.bottomNav.setupWithNavController(navController)
     }
 
@@ -188,12 +191,44 @@ class MainActivity : AppCompatActivity(), ShowPinedComponent , NavigationView.On
 
     override fun showNavDrawer(check: Boolean) {
         if(check) {
-            binding.appbarLayout.visibility = View.VISIBLE
+            //binding.appbarLayout.visibility = View.VISIBLE
             binding.navView.visibility = View.VISIBLE
         }
         else {
-            binding.appbarLayout.visibility = View.GONE
+          //  binding.appbarLayout.visibility = View.GONE
             binding.navView.visibility = View.GONE
+        }
+    }
+
+    override fun showToolBar(check: Boolean) {
+        if(check) {
+            binding.appbarLayout.visibility = View.VISIBLE
+        }
+        else {
+             binding.appbarLayout.visibility = View.GONE
+        }
+    }
+
+    override fun showFragmentTitle(check: Boolean,titleResource:Int?) {
+        if(check) {
+            //binding.appbarLayout.visibility = View.VISIBLE
+            binding.fragmentTitle.visibility = View.VISIBLE
+            binding.fragmentTitle.text = titleResource?.let { getText(it) }
+        }
+        else {
+            //  binding.appbarLayout.visibility = View.GONE
+            binding.fragmentTitle.visibility = View.GONE
+        }
+    }
+
+    override fun showProfileImage(check: Boolean) {
+        if(check) {
+            //binding.appbarLayout.visibility = View.VISIBLE
+            binding.openProfileImg.visibility = View.VISIBLE
+        }
+        else {
+            //  binding.appbarLayout.visibility = View.GONE
+            binding.openProfileImg.visibility = View.GONE
         }
     }
 

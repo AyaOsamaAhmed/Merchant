@@ -14,18 +14,19 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.rbt.merchant.databinding.FragmentCurrentOrderBinding
+import com.rbt.merchant.R
+import com.rbt.merchant.databinding.FragmentHomeBinding
 import com.rbt.merchant.presentation.ui.MainActivity
 import com.rbt.merchant.utils.common.Permissions
 import com.rbt.merchant.utils.permissionRequestList
 import java.util.*
 
-private const val TAG = "CurrentOrderFragment"
-
-class CurrentOrderFragment : Fragment() {
-    private lateinit var binding: FragmentCurrentOrderBinding
+private const val TAG = "HomeFragment"
+class HomeFragment : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     private var isLocationPermissionGranted = false
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -33,9 +34,12 @@ class CurrentOrderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCurrentOrderBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater,container,false)
         (activity as MainActivity?)!!.showNavBottom(true)
-        (activity as MainActivity?)!!.showNavDrawer(true)
+        (activity as MainActivity?)!!.showToolBar(true)
+        (activity as MainActivity?)!!.showNavDrawer(false)
+        (activity as MainActivity?)!!.showFragmentTitle(true, R.string.home)
+        (activity as MainActivity?)!!.showProfileImage(true)
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
         activity?.onBackPressedDispatcher?.addCallback(
@@ -58,7 +62,6 @@ class CurrentOrderFragment : Fragment() {
         getCurrentLocation()
         return binding.root
     }
-
     private fun getCurrentLocation() {
         if (checkLocationPermission()) {
             fusedLocationProviderClient.lastLocation.addOnCompleteListener { location ->
@@ -110,4 +113,5 @@ class CurrentOrderFragment : Fragment() {
             permissionLauncher.launch(permissionRequestList.toTypedArray())
         }
     }
+
 }

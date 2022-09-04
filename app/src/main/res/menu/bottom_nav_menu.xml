@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-
     <item
         android:id="@+id/statisticsFragment"
         android:icon="@drawable/ic_statistics"
         android:title="@string/statistics" />
     <item
-        android:id="@+id/chatFragment"
-        android:icon="@drawable/ic_chat"
-        android:title="@string/offered_chats" />
-    <item
-        android:id="@+id/currentOrderFragment"
+        android:id="@+id/ordersFragment"
         android:icon="@drawable/ic_order"
         android:title="@string/current_orders"/>
     <item
-        android:id="@+id/archiveFragment"
-        android:icon="@drawable/ic_archive"
-        android:title="@string/archive" />
+        android:id="@+id/homeFragment2"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"/>
     <item
-        android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_account"
-        android:title="@string/profile" />
+        android:id="@+id/chivalryRBTFragment"
+        android:icon="@drawable/ic_nakhwet_rbt"
+        android:title="@string/chivalry_rbt" />
+    <item
+        android:id="@+id/chatFragment"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/offered_chats" />
 
 
 

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentChatBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.presentation.ui.MainActivity
@@ -25,10 +26,13 @@ class ChatFragment : Fragment() {
         binding = FragmentChatBinding.inflate(inflater,container,false)
         viewModel = ViewModelProvider(this)[ChatViewModel::class.java]
         (activity as MainActivity?)!!.showNavBottom(true)
-        (activity as MainActivity?)!!.showNavDrawer(true)
+        (activity as MainActivity?)!!.showToolBar(true)
+        (activity as MainActivity?)!!.showNavDrawer(false)
+        (activity as MainActivity?)!!.showFragmentTitle(true, R.string.offered_chats)
+        (activity as MainActivity?)!!.showProfileImage(true)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                findNavController().navigate(ChatFragmentDirections.actionChatFragmentToCurrentOrderFragment())
+                findNavController().navigate(ChatFragmentDirections.actionChatFragmentToHomeFragment2())
             }
         })
         return binding.root

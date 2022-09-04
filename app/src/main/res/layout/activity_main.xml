@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/appbar_Layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
@@ -26,17 +26,33 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
                 <ImageView
                     android:id="@+id/open_side_menu_img"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
                     android:contentDescription="@string/list_image"
-                    android:src="@drawable/ic_menu_dash" />
+                    android:src="@drawable/ic_menu_dash"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.switchmaterial.SwitchMaterial
+                <ImageView
+                    android:id="@+id/open_profile_img"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentStart="true"
+                    android:contentDescription="@string/list_image"
+                    android:scaleType="fitXY"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:src="@drawable/profile_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--<com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/active_switcher_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,8 +60,23 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:text="@string/active"
-                    android:visibility="gone" />
-            </RelativeLayout>
+                    android:visibility="gone" />-->
+                <TextView
+                    android:id="@+id/fragment_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/open_side_menu_img"
+                    android:layout_alignBottom="@+id/open_side_menu_img"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/purple_500"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/open_side_menu_img"
+                    app:layout_constraintEnd_toStartOf="@+id/open_profile_img"
+                    app:layout_constraintStart_toEndOf="@+id/open_side_menu_img"
+                    app:layout_constraintTop_toTopOf="@+id/open_side_menu_img"
+                    tools:text="Fragment Name" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/constraint_Fragment_layout"
                 android:layout_width="0dp"
@@ -61,6 +92,7 @@
                 android:id="@+id/bottomNav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:labelVisibilityMode="labeled"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

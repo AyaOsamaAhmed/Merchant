@@ -10,12 +10,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.fragment.home.main.ArchiveFragment">
+        tools:context=".presentation.fragment.home.main.ChivalryRBTFragment">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Archive Fragment"
+            android:text="Chivalry Fragment"
             android:textAlignment="center"
             android:textColor="@color/purple_500"
             android:textSize="@dimen/_18sdp"

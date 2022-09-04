@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
+import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentProfileBinding
 import com.rbt.merchant.presentation.ui.MainActivity
 
@@ -19,10 +20,13 @@ class ProfileFragment : Fragment() {
     ): View {
         binding = FragmentProfileBinding.inflate(inflater,container,false)
         (activity as MainActivity?)!!.showNavBottom(true)
-        (activity as MainActivity?)!!.showNavDrawer(true)
+        (activity as MainActivity?)!!.showToolBar(true)
+        (activity as MainActivity?)!!.showNavDrawer(false)
+        (activity as MainActivity?)!!.showFragmentTitle(true,R.string.profile)
+        (activity as MainActivity?)!!.showProfileImage(true)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToCurrentOrderFragment())
+                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToHomeFragment2())
             }
         })
         return binding.root
