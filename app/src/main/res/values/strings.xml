@@ -46,4 +46,8 @@
     <string name="send_voice_message">send voice message</string>
     <string name="image">image</string>
     <string name="chivalry_rbt">Chivalry RBT</string>
+    <string name="new_chats"><![CDATA[New Chats >]]></string>
+    <string name="new_order"><![CDATA[New Order >]]></string>
+    <string name="chivalry_rbt_orders"><![CDATA[Chivalry RBT >]]></string>
+
 </resources>

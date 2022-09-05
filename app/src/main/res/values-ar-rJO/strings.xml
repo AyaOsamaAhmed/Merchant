@@ -46,4 +46,7 @@
     <string name="send_voice_message">send voice message</string>
     <string name="image">image</string>
     <string name="chivalry_rbt">نخوه ربط</string>
+    <string name="new_chats"><![CDATA[المحادثات الجديدة >]]></string>
+    <string name="new_order"><![CDATA[الطلبات الجديدة >]]></string>
+    <string name="chivalry_rbt_orders"><![CDATA[طلبات نخوه ربط >]]></string>
 </resources>
