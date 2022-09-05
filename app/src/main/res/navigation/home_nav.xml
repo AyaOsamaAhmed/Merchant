@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.ProfileFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.profile_screen.ProfileFragment"
         android:label="ArchiveFragment"
         tools:layout="@layout/fragment_profile">
         <action
@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_chatFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_chatFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/statisticsFragment"
@@ -38,6 +41,9 @@
         <action
             android:id="@+id/action_statisticsFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_statisticsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatDetailsFragment"
@@ -61,6 +67,9 @@
         <action
             android:id="@+id/action_chivalryRBTFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_chivalryRBTFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
@@ -74,6 +83,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_homeFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/ordersFragment"
@@ -83,6 +95,9 @@
         <action
             android:id="@+id/action_ordersFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_ordersFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 
 </navigation>

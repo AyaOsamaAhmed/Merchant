@@ -19,14 +19,14 @@ import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
 
 private const val TAG = "ChatAdapter"
-class ChatAdapter(private val isFromHome: Boolean) :
+class ChatAdapter:
     ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallback()) {
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemChatBinding.inflate(layoutInflater, parent, false)
         context = parent.context
-        return ViewHolder(binding, isFromHome)
+        return ViewHolder(binding)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -45,7 +45,7 @@ class ChatAdapter(private val isFromHome: Boolean) :
     }
 
 
-    class ViewHolder(binding: ItemChatBinding, private var isFromHome: Boolean) :
+    class ViewHolder(binding: ItemChatBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private var itemRowBinding: ItemChatBinding = binding
         @RequiresApi(Build.VERSION_CODES.M)
@@ -61,7 +61,7 @@ class ChatAdapter(private val isFromHome: Boolean) :
                 itemRowBinding.name.setTextColor(context.getColor(R.color.gray))
                 itemRowBinding.time.setTextColor(context.getColor(R.color.gray))
                 navController = Navigation.findNavController(itemView)
-                if (isFromHome) {
+                if (navController.currentDestination?.label == "HomeFragment") {
                     navController.navigate(
                         HomeFragmentDirections.actionHomeFragment2ToChatDetailsFragment(
                             obj

@@ -33,7 +33,7 @@
             app:layout_constraintEnd_toEndOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/new_chats_home"
-            tools:listitem="@layout/fragment_chat" />
+            tools:listitem="@layout/item_chat" />
 
         <TextView
             android:id="@+id/new_orders_home"
@@ -116,7 +116,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.5" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

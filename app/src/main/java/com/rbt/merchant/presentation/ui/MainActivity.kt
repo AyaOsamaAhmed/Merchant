@@ -18,11 +18,18 @@ import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.ActivityMainBinding
+import com.rbt.merchant.presentation.fragment.home.main.StatisticsFragment
+import com.rbt.merchant.presentation.fragment.home.main.StatisticsFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.chivalry_screen.ChivalryRBTFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.orders_screen.OrdersFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.side_menu.ProfilesSwitcherAdapter
 import com.rbt.merchant.utils.common.CommonFunction
 import com.rbt.merchant.utils.common.LocaleHelper
@@ -57,6 +64,27 @@ class MainActivity : AppCompatActivity(), ShowPinedComponent , NavigationView.On
 
         binding.openSideMenuImg.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+        binding.openProfileImg.setOnClickListener {
+            Log.d(TAG, "onCreate: navController.currentDestination ${navController.currentDestination}")
+            when(navController.currentDestination?.label){
+                "HomeFragment" -> {
+                    navController.navigate(HomeFragmentDirections.actionHomeFragment2ToProfileFragment())
+                }
+                "ChivalryRBTFragment" -> {
+                    navController.navigate(ChivalryRBTFragmentDirections.actionChivalryRBTFragmentToProfileFragment())
+                }
+                "ChatFragment" -> {
+                    navController.navigate(ChatFragmentDirections.actionChatFragmentToProfileFragment())
+                }
+                "StatisticsFragment" -> {
+                    navController.navigate(StatisticsFragmentDirections.actionStatisticsFragmentToProfileFragment())
+                }
+                "OrdersFragment" -> {
+                    navController.navigate(OrdersFragmentDirections.actionOrdersFragmentToProfileFragment())
+                }
+            }
+
         }
         val profilesList = ArrayList<Pair<String,Int>>()
         profilesList.add(Pair("Store One",R.drawable.ic_rbt_logo))

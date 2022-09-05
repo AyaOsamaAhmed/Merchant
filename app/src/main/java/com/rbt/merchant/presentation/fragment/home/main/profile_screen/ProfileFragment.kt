@@ -1,4 +1,4 @@
-package com.rbt.merchant.presentation.fragment.home.main
+package com.rbt.merchant.presentation.fragment.home.main.profile_screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

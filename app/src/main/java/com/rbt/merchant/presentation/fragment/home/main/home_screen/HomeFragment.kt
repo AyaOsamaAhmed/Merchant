@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
                 }
             }
         getCurrentLocation()
-        chatAdapter = ChatAdapter(true)
+        chatAdapter = ChatAdapter()
         orderAdapter = NewOrdersAdapter()
         chivalryOrderAdapter = NewChivalryOrderAdapter()
         return binding.root
@@ -83,19 +83,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.requestChatListLiveData.observe(viewLifecycleOwner){ chatList ->
-            Log.d(TAG, "onViewCreated: chatlist: ${chatList.size}")
             val data = chatList as ArrayList<Chat>
             chatAdapter.submitList(data)
             binding.newChatsRvHome.adapter = chatAdapter
         }
         viewModel.requestOrdersListLiveData.observe(viewLifecycleOwner){ orderList ->
-            Log.d(TAG, "onViewCreated: orderList: ${orderList.size}")
             val data = orderList as ArrayList<NewOrdersModel>
             orderAdapter.submitList(data)
             binding.newOrdersRvHome.adapter = orderAdapter
         }
         viewModel.requestChivalryRbtListLiveData.observe(viewLifecycleOwner){ chivalryList ->
-            Log.d(TAG, "onViewCreated: chivalryList: ${chivalryList.size}")
             val data = chivalryList as ArrayList<NewChivalryRbtModel>
             chivalryOrderAdapter.submitList(data)
             binding.newNakhwetRbtRvHome.adapter = chivalryOrderAdapter
