@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/chivalryRBTFragment"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.ChivalryRBTFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.chivalry_screen.ChivalryRBTFragment"
         tools:layout="@layout/fragment_chivalry_r_b_t"
         android:label="ChivalryRBTFragment" >
         <action
@@ -64,12 +64,12 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.HomeFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragment"
         tools:layout="@layout/fragment_home"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/ordersFragment"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.OrdersFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.orders_screen.OrdersFragment"
         tools:layout="@layout/fragment_orders"
         android:label="OrdersFragment" >
         <action

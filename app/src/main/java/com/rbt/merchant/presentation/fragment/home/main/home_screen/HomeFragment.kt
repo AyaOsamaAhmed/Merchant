@@ -1,4 +1,4 @@
-package com.rbt.merchant.presentation.fragment.home.main
+package com.rbt.merchant.presentation.fragment.home.main.home_screen
 
 import android.Manifest
 import android.app.AlertDialog
@@ -14,11 +14,17 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentHomeBinding
+import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
+import com.rbt.merchant.domain.use_case.ui_models.new_chivalry_rbt.NewChivalryRbtModel
+import com.rbt.merchant.domain.use_case.ui_models.new_orders.NewOrdersModel
+import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatAdapter
+import com.rbt.merchant.presentation.fragment.home.main.chivalry_screen.new_chivalry_rbt.NewChivalryOrderAdapter
+import com.rbt.merchant.presentation.fragment.home.main.orders_screen.new_orders.NewOrdersAdapter
 import com.rbt.merchant.presentation.ui.MainActivity
 import com.rbt.merchant.utils.common.Permissions
 import com.rbt.merchant.utils.permissionRequestList
@@ -27,9 +33,17 @@ import java.util.*
 private const val TAG = "HomeFragment"
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private val viewModel: HomeViewModel by lazy {
+        ViewModelProvider(this)[HomeViewModel::class.java]
+    }
+    // access location
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     private var isLocationPermissionGranted = false
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    // new Chats Adapter
+    private lateinit var chatAdapter: ChatAdapter
+    private lateinit var orderAdapter: NewOrdersAdapter
+    private lateinit var chivalryOrderAdapter: NewChivalryOrderAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,7 +74,32 @@ class HomeFragment : Fragment() {
                 }
             }
         getCurrentLocation()
+        chatAdapter = ChatAdapter()
+        orderAdapter = NewOrdersAdapter()
+        chivalryOrderAdapter = NewChivalryOrderAdapter()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.requestChatListLiveData.observe(viewLifecycleOwner){ chatList ->
+            Log.d(TAG, "onViewCreated: chatlist: ${chatList.size}")
+            val data = chatList as ArrayList<Chat>
+            chatAdapter.submitList(data)
+            binding.newChatsRvHome.adapter = chatAdapter
+        }
+        viewModel.requestOrdersListLiveData.observe(viewLifecycleOwner){ orderList ->
+            Log.d(TAG, "onViewCreated: orderList: ${orderList.size}")
+            val data = orderList as ArrayList<NewOrdersModel>
+            orderAdapter.submitList(data)
+            binding.newOrdersRvHome.adapter = orderAdapter
+        }
+        viewModel.requestChivalryRbtListLiveData.observe(viewLifecycleOwner){ chivalryList ->
+            Log.d(TAG, "onViewCreated: chivalryList: ${chivalryList.size}")
+            val data = chivalryList as ArrayList<NewChivalryRbtModel>
+            chivalryOrderAdapter.submitList(data)
+            binding.newNakhwetRbtRvHome.adapter = chivalryOrderAdapter
+        }
     }
     private fun getCurrentLocation() {
         if (checkLocationPermission()) {

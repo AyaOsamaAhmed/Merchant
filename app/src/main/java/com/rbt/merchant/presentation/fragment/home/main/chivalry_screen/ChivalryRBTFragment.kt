@@ -1,4 +1,4 @@
-package com.rbt.merchant.presentation.fragment.home.main
+package com.rbt.merchant.presentation.fragment.home.main.chivalry_screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,26 +8,25 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.rbt.merchant.R
-import com.rbt.merchant.databinding.FragmentOrdersBinding
-import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatFragmentDirections
+import com.rbt.merchant.databinding.FragmentChivalryRBTBinding
 import com.rbt.merchant.presentation.ui.MainActivity
 
 
-class OrdersFragment : Fragment() {
-    private lateinit var binding: FragmentOrdersBinding
+class ChivalryRBTFragment : Fragment() {
+    private lateinit var binding: FragmentChivalryRBTBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentOrdersBinding.inflate(inflater,container,false)
+        binding = FragmentChivalryRBTBinding.inflate(inflater,container,false)
         (activity as MainActivity?)!!.showNavBottom(true)
         (activity as MainActivity?)!!.showToolBar(true)
         (activity as MainActivity?)!!.showNavDrawer(false)
-        (activity as MainActivity?)!!.showFragmentTitle(true, R.string.current_orders)
+        (activity as MainActivity?)!!.showFragmentTitle(true, R.string.chivalry_rbt)
         (activity as MainActivity?)!!.showProfileImage(true)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                findNavController().navigate(OrdersFragmentDirections.actionOrdersFragmentToHomeFragment2())
+                findNavController().navigate(ChivalryRBTFragmentDirections.actionChivalryRBTFragmentToHomeFragment2())
             }
         })
         return binding.root

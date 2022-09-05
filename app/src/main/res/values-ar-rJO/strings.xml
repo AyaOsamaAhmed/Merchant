@@ -50,6 +50,6 @@
     <string name="new_order"><![CDATA[الطلبات الجديدة >]]></string>
     <string name="chivalry_rbt_orders"><![CDATA[طلبات نخوه ربط >]]></string>
     <string name="order_no">طلب رقم</string>
-    <string name="client_name">Client Name:</string>
-    <string name="order_date">Order Date:</string>
+    <string name="client_name">أسم العميل :</string>
+    <string name="order_date">تاريخ الطلب :</string>
 </resources>
