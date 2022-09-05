@@ -49,4 +49,7 @@
     <string name="new_chats"><![CDATA[New Chats >]]></string>
     <string name="new_order"><![CDATA[New Order >]]></string>
     <string name="chivalry_rbt_orders"><![CDATA[Chivalry RBT >]]></string>
+    <string name="order_no">Order Number</string>
+    <string name="client_name">Client Name:</string>
+    <string name="order_date">Order Date:</string>
 </resources>
