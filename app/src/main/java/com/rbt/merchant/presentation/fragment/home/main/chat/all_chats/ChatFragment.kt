@@ -40,7 +40,7 @@ class ChatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = ChatAdapter()
+        adapter = ChatAdapter(false)
         viewModel.requestChatListLiveData.observe(viewLifecycleOwner){ chatList ->
             val data = chatList as ArrayList<Chat>
             adapter.submitList(data)

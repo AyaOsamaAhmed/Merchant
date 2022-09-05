@@ -16,16 +16,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.ItemChatBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
+import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
 
 private const val TAG = "ChatAdapter"
-
-class ChatAdapter : ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallback()) {
+class ChatAdapter(private val isFromHome: Boolean) :
+    ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallback()) {
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemChatBinding.inflate(layoutInflater, parent, false)
         context = parent.context
-        return ViewHolder(binding)
+        return ViewHolder(binding, isFromHome)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -44,7 +45,8 @@ class ChatAdapter : ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallb
     }
 
 
-    class ViewHolder(binding: ItemChatBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(binding: ItemChatBinding, private var isFromHome: Boolean) :
+        RecyclerView.ViewHolder(binding.root) {
         private var itemRowBinding: ItemChatBinding = binding
         @RequiresApi(Build.VERSION_CODES.M)
         fun bind(obj: Chat, context: Context) {
@@ -59,7 +61,19 @@ class ChatAdapter : ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallb
                 itemRowBinding.name.setTextColor(context.getColor(R.color.gray))
                 itemRowBinding.time.setTextColor(context.getColor(R.color.gray))
                 navController = Navigation.findNavController(itemView)
-                navController.navigate(ChatFragmentDirections.actionChatFragmentToChatDetailsFragment(obj))
+                if (isFromHome) {
+                    navController.navigate(
+                        HomeFragmentDirections.actionHomeFragment2ToChatDetailsFragment(
+                            obj
+                        )
+                    )
+                } else {
+                    navController.navigate(
+                        ChatFragmentDirections.actionChatFragmentToChatDetailsFragment(
+                            obj
+                        )
+                    )
+                }
             }
         }
     }

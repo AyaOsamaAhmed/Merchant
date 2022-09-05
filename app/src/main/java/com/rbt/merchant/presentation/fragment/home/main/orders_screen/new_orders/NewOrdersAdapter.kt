@@ -19,7 +19,6 @@ import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.domain.use_case.ui_models.new_orders.NewOrdersModel
 import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatFragmentDirections
 
-
 private const val TAG = "NewOrdersAdapter"
 class NewOrdersAdapter: ListAdapter<NewOrdersModel, NewOrdersAdapter.ViewHolder>(NewOrdersModelDiffCallback()) {
     private lateinit var context: Context

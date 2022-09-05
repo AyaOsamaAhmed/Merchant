@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
                 }
             }
         getCurrentLocation()
-        chatAdapter = ChatAdapter()
+        chatAdapter = ChatAdapter(true)
         orderAdapter = NewOrdersAdapter()
         chivalryOrderAdapter = NewChivalryOrderAdapter()
         return binding.root

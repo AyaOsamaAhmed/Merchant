@@ -6,7 +6,7 @@ import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 
 class ChatViewModel : ViewModel() {
 
-    var requestChatListLiveData = MutableLiveData<Any>()
+    var requestChatListLiveData = MutableLiveData<ArrayList<Chat>>()
     private var chatData: ArrayList<Chat> = arrayListOf()
 
     private val image2 =
