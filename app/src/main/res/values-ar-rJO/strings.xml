@@ -57,4 +57,9 @@
     <string name="prepare_order">تجهيز الطلب</string>
     <string name="delivery_order">توصيل الطلب</string>
     <string name="done_order">تم الاستلام</string>
+    <string name="order_invoice">فاتوره الطلب</string>
+    <string name="purchase_value">قيمة المشتريات</string>
+    <string name="tax">الضريبه</string>
+    <string name="delivery">التوصيل</string>
+    <string name="invoice_download">تحميل الفاتوره</string>
 </resources>

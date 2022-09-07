@@ -47,4 +47,9 @@
     <string name="client_name">Client Name:</string>
     <string name="order_date">Order Date:</string>
     <string name="reject_order">Reject Order</string>
+    <string name="order_invoice">Order Invoice</string>
+    <string name="purchase_value">Purchase value</string>
+    <string name="tax">Tax</string>
+    <string name="delivery">Delivery</string>
+    <string name="invoice_download">Invoice download</string>
 </resources>

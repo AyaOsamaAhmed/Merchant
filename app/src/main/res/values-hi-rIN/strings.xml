@@ -57,4 +57,9 @@
     <string name="delivery_order">Delivery Order</string>
     <string name="prepare_order">Prepare Order</string>
     <string name="confirm_order">Confirm Order</string>
+    <string name="order_invoice">Order Invoice</string>
+    <string name="purchase_value">Purchase value</string>
+    <string name="tax">Tax</string>
+    <string name="delivery">Delivery</string>
+    <string name="invoice_download">Invoice download</string>
 </resources>
