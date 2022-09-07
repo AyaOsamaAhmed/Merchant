@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/main_layout_background"
         tools:context=".presentation.fragment.home.main.orders_screen.new_orders.OrderDetailsFragment">
 
         <TextView
@@ -30,6 +31,7 @@
             android:textColor="@color/purple_500"
             android:textSize="@dimen/_20sdp"
             android:paddingStart="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_2sdp"
             app:layout_constraintBottom_toBottomOf="@+id/order_number_label_order_details"
             app:layout_constraintEnd_toStartOf="@+id/guideline8"
             app:layout_constraintStart_toEndOf="@+id/order_number_label_order_details"

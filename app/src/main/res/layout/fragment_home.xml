@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/main_layout_background"
         tools:context=".presentation.fragment.home.main.home_screen.HomeFragment">
 
         <TextView
