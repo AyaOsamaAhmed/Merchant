@@ -46,4 +46,5 @@
     <string name="order_no">Order No.</string>
     <string name="client_name">Client Name:</string>
     <string name="order_date">Order Date:</string>
+    <string name="reject_order">Reject Order</string>
 </resources>

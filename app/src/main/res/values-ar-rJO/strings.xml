@@ -31,20 +31,20 @@
     <string name="active">نشط</string>
     <string name="driver_profile_pic">صوره السائق</string>
     <string name="home_fragment">الصفحه الرئيسيه</string>
-    <string name="list_image">list Image</string>
-    <string name="store_logo">Store Logo</string>
+    <string name="list_image">قائمه الصور</string>
+    <string name="store_logo">لوجو المتجر</string>
     <string name="current_orders">الطلبات</string>
     <string name="home">الرئيسية</string>
     <string name="archive">المؤرشفه</string>
     <string name="profile">حسابي</string>
     <string name="statistics">الاحصائات</string>
     <string name="offered_chats">المحادثات</string>
-    <string name="chat_logo">chat logo</string>
-    <string name="type_a_message">Type a message</string>
-    <string name="send_message">send message</string>
-    <string name="send_image">send image</string>
-    <string name="send_voice_message">send voice message</string>
-    <string name="image">image</string>
+    <string name="chat_logo">لوجو المحادثه</string>
+    <string name="type_a_message">اكتب رسالتك</string>
+    <string name="send_message">ارسل الرساله</string>
+    <string name="send_image">ارسل الصوره</string>
+    <string name="send_voice_message">ارسل رساله صوتيه</string>
+    <string name="image">الصوره</string>
     <string name="chivalry_rbt">نخوه ربط</string>
     <string name="new_chats"><![CDATA[المحادثات الجديدة >]]></string>
     <string name="new_order"><![CDATA[الطلبات الجديدة >]]></string>
@@ -52,4 +52,5 @@
     <string name="order_no">طلب رقم</string>
     <string name="client_name">أسم العميل :</string>
     <string name="order_date">تاريخ الطلب :</string>
+    <string name="reject_order">أرفض الطلب</string>
 </resources>

@@ -18,9 +18,10 @@ import com.rbt.merchant.databinding.NewOrderListItemBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.domain.use_case.ui_models.new_orders.NewOrdersModel
 import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
 
 private const val TAG = "NewOrdersAdapter"
-class NewOrdersAdapter: ListAdapter<NewOrdersModel, NewOrdersAdapter.ViewHolder>(NewOrdersModelDiffCallback()) {
+class NewOrdersAdapter : ListAdapter<NewOrdersModel, NewOrdersAdapter.ViewHolder>(NewOrdersModelDiffCallback()) {
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -31,6 +32,7 @@ class NewOrdersAdapter: ListAdapter<NewOrdersModel, NewOrdersAdapter.ViewHolder>
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position), context)
+
     }
 
     class NewOrdersModelDiffCallback : DiffUtil.ItemCallback<NewOrdersModel>() {
@@ -51,6 +53,14 @@ class NewOrdersAdapter: ListAdapter<NewOrdersModel, NewOrdersAdapter.ViewHolder>
             itemRowBinding.orderDateTxtHome.text = newOrder.order_date
             itemRowBinding.orderNumberTxtHome.text = newOrder.order_Id
             itemRowBinding.executePendingBindings()
+            itemRowBinding.cardLayout.setOnClickListener {
+                val navController: NavController?
+                navController = Navigation.findNavController(itemView)
+                navController.navigate(
+                    HomeFragmentDirections.actionHomeFragment2ToOrderDetailsFragment(newOrder.order_Id)
+                )
+            }
         }
     }
+
 }

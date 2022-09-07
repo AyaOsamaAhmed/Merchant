@@ -19,8 +19,7 @@ import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
 
 private const val TAG = "ChatAdapter"
-class ChatAdapter:
-    ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallback()) {
+class ChatAdapter: ListAdapter<Chat, ChatAdapter.ViewHolder>(ChatModelDiffCallback()) {
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
