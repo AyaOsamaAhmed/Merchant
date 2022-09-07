@@ -197,6 +197,7 @@
                     android:background="@drawable/border_purple_button_background"
                     android:text="@string/invoice_download"
                     android:textColor="@color/purple_500"
+                    android:fontFamily="@font/cairo_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/delivery_value_text"
                     app:layout_constraintHorizontal_bias="0.5"
