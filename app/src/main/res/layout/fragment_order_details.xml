@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_layout_background"
-        tools:context=".presentation.fragment.home.main.orders_screen.new_orders.OrderDetailsFragment">
+        tools:context=".presentation.fragment.home.main.orders_screen.order_details.OrderDetailsFragment">
 
         <TextView
             android:id="@+id/order_number_label_order_details"
@@ -46,7 +46,7 @@
             android:text="@string/accept_order"
             android:textColor="@color/green"
             android:textSize="@dimen/_10sdp"
-            android:fontFamily="@font/cairo_bold"
+            android:fontFamily="@font/cairo_regular"
             android:paddingStart="@dimen/_25sdp"
             android:paddingEnd="@dimen/_25sdp"
             android:background="@drawable/accept_btn_background"
@@ -60,8 +60,7 @@
             android:text="@string/reject_order"
             android:textColor="@color/dark_red"
             android:textSize="@dimen/_10sdp"
-            android:fontFamily="@font/cairo_bold"
-
+            android:fontFamily="@font/cairo_regular"
             android:paddingStart="@dimen/_25sdp"
             android:paddingEnd="@dimen/_25sdp"
             android:layout_marginStart="@dimen/_15sdp"
@@ -69,6 +68,18 @@
             app:layout_constraintStart_toEndOf="@+id/accept_order_btn"
             app:layout_constraintTop_toBottomOf="@+id/order_number_txt_order_details" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/order_details_status_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@+id/accept_order_btn"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_order_details_status" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline7"

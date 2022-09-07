@@ -104,7 +104,7 @@
     </fragment>
     <fragment
         android:id="@+id/orderDetailsFragment"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.orders_screen.new_orders.OrderDetailsFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.orders_screen.order_details.OrderDetailsFragment"
         android:label="OrderDetailsFragment"
         tools:layout="@layout/fragment_order_details">
         <argument

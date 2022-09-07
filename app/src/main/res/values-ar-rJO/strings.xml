@@ -53,4 +53,8 @@
     <string name="client_name">أسم العميل :</string>
     <string name="order_date">تاريخ الطلب :</string>
     <string name="reject_order">أرفض الطلب</string>
+    <string name="confirm_order">تأكيد الطلب</string>
+    <string name="prepare_order">تجهيز الطلب</string>
+    <string name="delivery_order">توصيل الطلب</string>
+    <string name="done_order">تم الاستلام</string>
 </resources>

@@ -53,4 +53,8 @@
     <string name="client_name">Client Name:</string>
     <string name="order_date">Order Date:</string>
     <string name="reject_order">Reject Order</string>
+    <string name="done_order">Done Order</string>
+    <string name="delivery_order">Delivery Order</string>
+    <string name="prepare_order">Prepare Order</string>
+    <string name="confirm_order">Confirm Order</string>
 </resources>
