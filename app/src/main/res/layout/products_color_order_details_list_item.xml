@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/_5sdp"
+    app:cardBackgroundColor="@color/yellow"
+    app:cardCornerRadius="@dimen/_20sdp"
+    app:cardElevation="0dp">
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+       <TextView
+           android:id="@+id/product_color_label"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/color"
+           android:textSize="@dimen/_8sdp"
+           android:textColor="@color/purple_500"
+           android:layout_marginHorizontal="@dimen/_8sdp"
+           android:layout_marginVertical="@dimen/_5sdp" />
+       <TextView
+           android:id="@+id/product_color_txt"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           tools:text="white"
+           android:textSize="@dimen/_8sdp"
+           android:textColor="@color/purple_500"
+           android:paddingEnd="@dimen/_10sdp"
+           android:layout_marginVertical="@dimen/_5sdp" />
+   </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

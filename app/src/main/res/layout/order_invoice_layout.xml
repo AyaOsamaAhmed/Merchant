@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bill_layout_card"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_20sdp"
+    app:cardElevation="@dimen/_5sdp"
+    app:layout_constraintEnd_toStartOf="@+id/guideline8"
+    app:layout_constraintStart_toStartOf="@+id/guideline7"
+    app:layout_constraintTop_toBottomOf="@+id/order_details_status_rv">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_220sdp"
+    android:layout_margin="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/order_invoice_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/order_invoice"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/purchase_value_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/purchase_value_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cairo_regular"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/purchase_value"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toTopOf="@+id/tax_value_label"
+        app:layout_constraintStart_toStartOf="@+id/order_invoice_label"
+        app:layout_constraintTop_toBottomOf="@+id/order_invoice_label" />
+
+    <TextView
+        android:id="@+id/purchase_value_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cairo_regular"
+        android:padding="@dimen/_5sdp"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/purchase_value_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_invoice_label"
+        tools:text="1000 R.S" />
+
+    <TextView
+        android:id="@+id/tax_value_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cairo_regular"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/tax"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toTopOf="@+id/delivery_value_label"
+        app:layout_constraintStart_toStartOf="@+id/purchase_value_label"
+        app:layout_constraintTop_toBottomOf="@+id/purchase_value_label" />
+
+    <TextView
+        android:id="@+id/tax_value_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cairo_regular"
+        android:padding="@dimen/_5sdp"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/tax_value_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tax_value_label"
+        tools:text="240 R.S" />
+
+    <TextView
+        android:id="@+id/delivery_value_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cairo_regular"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/delivery"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toTopOf="@+id/invoice_download_btn"
+        app:layout_constraintStart_toStartOf="@+id/tax_value_label"
+        app:layout_constraintTop_toBottomOf="@+id/tax_value_label" />
+
+    <TextView
+        android:id="@+id/delivery_value_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cairo_regular"
+        android:padding="@dimen/_5sdp"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/delivery_value_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/delivery_value_label"
+        tools:text="240 R.S" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/invoice_download_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_margin="@dimen/_7sdp"
+        android:background="@drawable/border_purple_button_background"
+        android:fontFamily="@font/cairo_regular"
+        android:text="@string/invoice_download"
+        android:textColor="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/delivery_value_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/delivery_value_label"
+        app:layout_constraintTop_toBottomOf="@+id/delivery_value_label" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

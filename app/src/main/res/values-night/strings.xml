@@ -52,4 +52,11 @@
     <string name="tax">Tax</string>
     <string name="delivery">Delivery</string>
     <string name="invoice_download">Invoice download</string>
+    <string name="products">Products</string>
+    <string name="number">Number</string>
+    <string name="color">Color:</string>
+    <string name="the_order_was_received_by_the_delivery_representative">The order was received by the delivery representative</string>
+    <string name="phone_number_img">phone_number_img</string>
+    <string name="confirm_receipt_of_order">Confirm receipt of order</string>
+    <string name="product_image">product_image</string>
 </resources>
