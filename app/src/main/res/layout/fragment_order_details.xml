@@ -439,7 +439,6 @@
                         android:fontFamily="@font/cairo_regular"
                         android:textColor="@color/cardview_dark_background"
                         android:textSize="@dimen/_10sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/delivery_branch_label"
                         app:layout_constraintTop_toBottomOf="@+id/delivery_branch_label"
                         tools:text="Delivery from branch" />
@@ -447,6 +446,17 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_marginVertical="@dimen/_20sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/delivery_info_layout_card" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline7"
