@@ -5,7 +5,7 @@
         android:color="@color/purple_500"
         android:width="@dimen/_1sdp"/>
     <corners
-        android:radius="@dimen/_10sdp"/>
+        android:radius="@dimen/_7sdp"/>
     <solid
         android:color="@color/main_layout_background"/>
 

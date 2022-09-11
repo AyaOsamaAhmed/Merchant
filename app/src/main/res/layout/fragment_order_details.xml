@@ -130,9 +130,9 @@
                 android:id="@+id/driver_info_layout_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_5sdp"
-                android:layout_marginVertical="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardElevation="@dimen/_3sdp"
+                android:layout_marginVertical="@dimen/_20sdp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline8"
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
                 app:layout_constraintTop_toBottomOf="@+id/products_items_rv">
@@ -209,7 +209,7 @@
 
                         <ImageView
                             android:id="@+id/driver_phone_call_btn"
-                            android:layout_width="@dimen/_25sdp"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_25sdp"
                             android:layout_marginHorizontal="@dimen/_5sdp"
                             android:background="@drawable/border_purple_button_background"
@@ -220,7 +220,7 @@
 
                         <ImageView
                             android:id="@+id/drvier_whats_app_btn"
-                            android:layout_width="@dimen/_25sdp"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_25sdp"
                             android:layout_marginHorizontal="@dimen/_5sdp"
                             android:background="@drawable/border_purple_button_background"
@@ -231,7 +231,7 @@
 
                         <ImageView
                             android:id="@+id/driver_sms_btn"
-                            android:layout_width="@dimen/_25sdp"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_25sdp"
                             android:layout_marginHorizontal="@dimen/_5sdp"
                             android:background="@drawable/border_purple_button_background"
@@ -262,9 +262,9 @@
                 android:id="@+id/client_info_layout_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
-                app:cardElevation="@dimen/_5sdp"
+                app:cardElevation="@dimen/_3sdp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline8"
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
                 app:layout_constraintTop_toBottomOf="@+id/driver_info_layout_card">
@@ -272,7 +272,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/client_container_layout"
                     android:layout_width="match_parent"
-                    android:paddingVertical="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_20sdp"
                     android:layout_height="wrap_content">
 
                     <TextView
@@ -342,7 +342,7 @@
 
                         <ImageView
                             android:id="@+id/client_phone_call_btn"
-                            android:layout_width="@dimen/_25sdp"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_25sdp"
                             android:layout_marginHorizontal="@dimen/_5sdp"
                             android:background="@drawable/border_purple_button_background"
@@ -353,7 +353,7 @@
 
                         <ImageView
                             android:id="@+id/client_whats_app_btn"
-                            android:layout_width="@dimen/_25sdp"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_25sdp"
                             android:layout_marginHorizontal="@dimen/_5sdp"
                             android:background="@drawable/border_purple_button_background"
@@ -364,7 +364,7 @@
 
                         <ImageView
                             android:id="@+id/client_sms_btn"
-                            android:layout_width="@dimen/_25sdp"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_25sdp"
                             android:layout_marginHorizontal="@dimen/_5sdp"
                             android:background="@drawable/border_purple_button_background"
@@ -381,9 +381,9 @@
                 android:id="@+id/delivery_info_layout_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/_20sdp"
-                android:layout_marginVertical="@dimen/_10sdp"
-                app:cardElevation="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_20sdp"
+                app:cardElevation="@dimen/_3sdp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline8"
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
                 app:layout_constraintTop_toBottomOf="@+id/client_info_layout_card">
