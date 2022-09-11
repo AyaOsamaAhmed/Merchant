@@ -1,91 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/main_layout_background"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/_100sdp">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/main_layout_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/product_image" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:bindImgUrl="@{model.product_image}"
+            app:bindProgressItem="@{progressBar}"
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/product_image" />
 
-    <TextView
-        android:id="@+id/products_name_txt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingEnd="@dimen/_10sdp"
-        android:textColor="@color/purple_500"
-        android:textSize="@dimen/_18sdp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        tools:text="Blue Perfume" />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/purple_500"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-    <TextView
-        android:id="@+id/products_number_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/number"
-        android:textColor="@color/purple_500"
-        android:textSize="@dimen/_12sdp"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_10sdp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/products_name_txt" />
+        <TextView
+            android:id="@+id/products_name_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/_18sdp"
+            android:text="@{model.product_name}"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            tools:text="Blue Perfume" />
 
-    <TextView
-        android:id="@+id/products_number_txt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_10sdp"
-        tools:text="5"
-        android:textColor="@color/purple_500"
-        android:textSize="@dimen/_12sdp"
-        app:layout_constraintStart_toEndOf="@+id/products_number_label"
-        app:layout_constraintTop_toTopOf="@+id/products_number_label" />
+        <TextView
+            android:id="@+id/products_number_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/_12sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/products_name_txt" />
 
-    <TextView
-        android:id="@+id/products_price_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_10sdp"
-        android:textColor="@color/purple_500"
-        android:textSize="@dimen/_12sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/products_number_txt"
-        app:layout_constraintTop_toTopOf="@+id/products_number_label"
-        tools:text="500 R.S" />
+        <TextView
+            android:id="@+id/products_number_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            tools:text="5"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/_12sdp"
+            android:text="@{model.product_number}"
+            app:layout_constraintStart_toEndOf="@+id/products_number_label"
+            app:layout_constraintTop_toTopOf="@+id/products_number_label" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/products_color_order_details_list_item"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/products_name_txt"
-        app:layout_constraintTop_toBottomOf="@+id/products_price_txt" />
+        <TextView
+            android:id="@+id/products_price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/_12sdp"
+            android:text="@{model.product_price}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/products_number_txt"
+            app:layout_constraintTop_toTopOf="@+id/products_number_label"
+            tools:text="500 R.S" />
 
-    <View
-        android:id="@+id/line"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/light_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/product_color_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="@dimen/_5sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/products_name_txt"
+            app:layout_constraintTop_toBottomOf="@+id/products_price_txt"
+            tools:listitem="@layout/products_color_order_details_list_item" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/light_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

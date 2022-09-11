@@ -62,11 +62,14 @@
     <string name="tax">الضريبه</string>
     <string name="delivery">التوصيل</string>
     <string name="invoice_download">تحميل الفاتوره</string>
-    <string name="products">Products</string>
-    <string name="number">Number</string>
-    <string name="color">Color:</string>
+    <string name="products">المنتجات</string>
+    <string name="number">الرقم</string>
+    <string name="color">اللون:</string>
     <string name="the_order_was_received_by_the_delivery_representative">تم استلام الطلب من قبل مندوب التوصيل</string>
     <string name="phone_number_img">رقم الهاتف</string>
     <string name="confirm_receipt_of_order">تأكيد استلام الطلب</string>
     <string name="product_image">صوره المنتج</string>
+    <string name="client_information">بيانات العميل</string>
+    <string name="delivery_information">بيانات التوصيل</string>
+    <string name="branch">الفرع</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="phone_number_img">phone_number_img</string>
     <string name="confirm_receipt_of_order">Confirm receipt of order</string>
     <string name="product_image">product_image</string>
+    <string name="client_information">Client Information</string>
+    <string name="delivery_information">Delivery Information</string>
+    <string name="branch">Branch</string>
 </resources>

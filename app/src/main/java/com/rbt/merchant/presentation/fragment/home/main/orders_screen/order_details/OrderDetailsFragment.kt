@@ -5,13 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.rbt.merchant.databinding.FragmentOrderDetailsBinding
+import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 import com.rbt.merchant.domain.use_case.ui_models.order_details.OrderDetailsStatusModel
+import com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel
 import com.rbt.merchant.presentation.ui.MainActivity
 
 class OrderDetailsFragment : Fragment() {
     private lateinit var binding: FragmentOrderDetailsBinding
-    private   var adapterStatus : OrderDetailsStatusAdapter = OrderDetailsStatusAdapter()
+    private  val viewModel: OrderDetailsViewModel by lazy {
+        ViewModelProvider(this)[OrderDetailsViewModel::class.java]
+    }
+    private var adapterStatus : OrderDetailsStatusAdapter = OrderDetailsStatusAdapter()
+    private var adapterProduct : ProductsListOrderDetailsAdapter = ProductsListOrderDetailsAdapter()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +38,11 @@ class OrderDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.orderDetailsStatusRv.adapter = adapterStatus
+        viewModel.requestProductsListLiveData.observe(viewLifecycleOwner){ productsList ->
+            val data = productsList as ArrayList<ProductOrderDetailsModel>
+            adapterProduct.submitList(data)
+            binding.productsItemsRv.adapter = adapterProduct
+        }
     }
 
 }
