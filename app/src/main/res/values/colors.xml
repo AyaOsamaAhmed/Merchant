@@ -11,6 +11,7 @@
     <color name="gray">#81706C6C</color>
     <color name="light_gray">#EAEAEA</color>
     <color name="white_gray">#81DFDCDC</color>
+    <color name="shadow_gray">#57EAEAEA</color>
     <color name="background_gray">#F4F4F4</color>
     <color name="main_layout_background">#FCFCFC</color>
     <color name="indicator">#B4B1B1</color>
@@ -19,5 +20,6 @@
     <color name="red">#FF0303</color>
     <color name="dark_red">#A13E27</color>
     <color name="green">#00AD68</color>
+    <color name="chat_green">#D7F4C1</color>
     <color name="button_back">#572589</color>
 </resources>

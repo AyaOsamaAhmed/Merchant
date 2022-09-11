@@ -35,7 +35,8 @@
                 android:paddingEnd="@dimen/_7sdp"
                 android:text="@{model.message}"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/cardview_dark_background"
+                android:fontFamily="@font/cairo_regular"
                 android:textSize="@dimen/_10sdp"
                 android:textStyle="normal"
                 android:visibility="gone"
@@ -90,7 +91,7 @@
                     android:id="@+id/voice_seek_bar"
                     android:layout_width="@dimen/_200sdp"
                     android:layout_height="wrap_content"
-                    android:thumbTint="@color/white" />
+                    android:thumbTint="@color/cardview_dark_background" />
 
                 <ImageView
                     android:id="@+id/voice_play"
@@ -98,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_5sdp"
                     android:src="@drawable/ic_play_arrow"
-                    app:tint="@color/white" />
+                    app:tint="@color/cardview_dark_background" />
 
                 <ImageView
                     android:id="@+id/voice_pause"
@@ -107,7 +108,7 @@
                     android:padding="@dimen/_5sdp"
                     android:src="@drawable/ic_pause"
                     android:visibility="gone"
-                    app:tint="@color/white" />
+                    app:tint="@color/cardview_dark_background" />
             </LinearLayout>
 
             <TextView
@@ -119,7 +120,7 @@
                 android:padding="@dimen/_5sdp"
                 android:text="@{model.messageTime}"
                 android:textAlignment="center"
-                android:textColor="@color/yellow"
+                android:textColor="@color/cardview_dark_background"
                 android:textSize="@dimen/_8sdp"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -137,7 +138,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/send_message_time_tv"
-                app:tint="@color/yellow" />
+                app:tint="@color/cardview_dark_background" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,19 +1,18 @@
-<!--
-<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    &lt;!&ndash; red shape &ndash;&gt;
+    &lt;!&ndash; purple shape &ndash;&gt;
     <item
         android:bottom="0dp"
-        android:gravity="center_horizontal|bottom"
+        android:gravity="left|bottom"
         android:top="0dp">
         <rotate
             android:fromDegrees="45"
-            android:pivotX="110%"
-            android:pivotY="17%"
+            android:pivotX="169%"
+            android:pivotY="42%"
             android:toDegrees="45">
             <shape android:shape="rectangle">
-                <solid android:color="@color/purple_500" />
+                <solid android:color="@color/shadow_gray" />
                 <size
                     android:width="10dp"
                     android:height="10dp" />
@@ -26,10 +25,7 @@
         android:top="0dp">
         <shape>
             <corners android:radius="3dp" />
-            <solid android:color="@color/purple_500" />
-            <size
-                android:width="50dp"
-                android:height="20dp" />
+            <solid android:color="@color/shadow_gray" />
         </shape>
     </item>
 
@@ -41,13 +37,12 @@
 
         <rotate
             android:fromDegrees="45"
-            android:pivotX="120%"
-            android:pivotY="15%"
+            android:pivotX="80%"
+            android:pivotY="-210%"
             android:toDegrees="45">
             <shape android:shape="rectangle">
-                <solid android:color="@color/purple_500" />
-                <size
-                    android:width="10dp"
+                <solid android:color="@color/red" />
+                <size android:width="10dp"
                     android:height="10dp" />
             </shape>
         </rotate>
@@ -60,15 +55,14 @@
         android:top="0.5dp">
         <shape>
             <corners android:radius="3dp" />
-            <solid android:color="@color/purple_500" />
+            <solid android:color="@color/red" />
             <size
                 android:width="50dp"
                 android:height="20dp" />
         </shape>
     </item>
 
-</layer-list>
--->
+</layer-list>-->
 <!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:right="20dp">
         <rotate
@@ -91,10 +85,13 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:left="5dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/yellow" />
+            <solid android:color="@color/white" />
             <corners android:topRightRadius="@dimen/_15sdp"
                 android:topLeftRadius="@dimen/_15sdp"
                 android:bottomRightRadius="@dimen/_15sdp"/>
+            <stroke
+                android:color="@color/shadow_gray"
+                android:width="@dimen/_1sdp"/>
         </shape>
     </item>
 </layer-list>
