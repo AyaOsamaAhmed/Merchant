@@ -85,7 +85,7 @@
             android:paddingEnd="@dimen/_10sdp"
             android:textColor="@color/purple_500"
             android:textSize="@dimen/_12sdp"
-            android:text="@{model.product_price}"
+            android:text="@{String.format(@string/product_price_format, model.product_price)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/products_number_txt"
             app:layout_constraintTop_toTopOf="@+id/products_number_label"

@@ -20,7 +20,7 @@ class OrderDetailsViewModel: ViewModel() {
 
     private fun getLocalDataChat() {
         repeat(10) { i ->
-            productsListData.add(ProductOrderDetailsModel(id=i, product_name = "العطر الازرق", product_image =  image2, product_number =  "5", product_price =  "200", colorList = listOf("ابيض", "ابيض","ابيض")))
+            productsListData.add(ProductOrderDetailsModel(id=i, product_name = "العطر الازرق", product_image =  image2, product_number =  "5", product_price =  200, colorList = listOf("ابيض", "ابيض","ابيض")))
         }
         requestProductsListLiveData.value = productsListData
     }

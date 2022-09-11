@@ -72,4 +72,5 @@
     <string name="client_information">بيانات العميل</string>
     <string name="delivery_information">بيانات التوصيل</string>
     <string name="branch">الفرع</string>
+    <string name="product_price_format">%s س.ر</string>
 </resources>

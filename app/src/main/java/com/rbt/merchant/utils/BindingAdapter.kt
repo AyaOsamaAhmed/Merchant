@@ -4,14 +4,15 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.rbt.merchant.R
+
 
 @BindingAdapter("app:bindImgUrl", "app:bindProgressItem")
 fun setGlideImageUrl(image: ImageView, url: String, progressBar: ProgressBar?) {
@@ -42,5 +43,11 @@ fun setGlideImageUrl(image: ImageView, url: String, progressBar: ProgressBar?) {
         })
       //  .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(image)
+}
+
+@BindingAdapter("format", "argId")
+fun setFormattedText(textView: TextView, format: String?, argId: Int) {
+    if (argId == 0) return
+    textView.text = String.format(format!!, textView.resources.getString(argId))
 }
 

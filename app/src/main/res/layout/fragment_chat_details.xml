@@ -117,7 +117,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:contentDescription="@string/send_message"
                 android:padding="@dimen/_3sdp"
-                android:src="@drawable/ic_send"
+                app:srcCompat="@drawable/ic_send"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -131,7 +131,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:contentDescription="@string/send_image"
                 android:padding="@dimen/_3sdp"
-                android:src="@drawable/camera"
+                android:src="@drawable/ic_camera"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/voice_layout"
                 app:layout_constraintTop_toTopOf="parent"
@@ -153,7 +153,7 @@
                     android:layout_margin="@dimen/_5sdp"
                     android:contentDescription="@string/send_voice_message"
                     android:padding="@dimen/_3sdp"
-                    android:src="@drawable/mic"
+                    android:src="@drawable/ic_mic"
                     app:tint="@color/purple_500" />
 
                 <com.airbnb.lottie.LottieAnimationView
