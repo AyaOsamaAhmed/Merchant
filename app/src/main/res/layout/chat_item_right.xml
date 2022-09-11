@@ -123,6 +123,7 @@
                 android:textColor="@color/cardview_dark_background"
                 android:textSize="@dimen/_8sdp"
                 android:textStyle="normal"
+                android:fontFamily="@font/cairo_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                 tools:text="02:05pm" />

@@ -118,6 +118,7 @@
                 android:textSize="@dimen/_8sdp"
                 android:textStyle="normal"
                 android:elevation="@dimen/_5sdp"
+                android:fontFamily="@font/cairo_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="02:05pm" />
