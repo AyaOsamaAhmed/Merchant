@@ -89,7 +89,7 @@ class ChatDetailsFragment : Fragment() {
         binding.openToolBoxImg.setOnClickListener {
             /*val toolBoxDialogFragment = ToolBoxDialogFragment()
             toolBoxDialogFragment.show(parentFragmentManager,"tool_box_fragment")*/
-            binding.toolBoxFragmentLayout.root.visibility = View.VISIBLE
+
         }
         return binding.root
     }
