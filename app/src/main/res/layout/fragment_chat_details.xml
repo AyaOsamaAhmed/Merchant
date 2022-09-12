@@ -14,6 +14,7 @@
             type="com.rbt.merchant.presentation.fragment.home.main.chat.chat_details.ChatDetailsViewModel" />
     </data>
 <androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/chat_details_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -190,12 +191,11 @@
             android:id="@+id/open_tool_box_img"
             android:layout_width="@dimen/_8sdp"
             android:layout_height="@dimen/_150sdp"
-            android:background="@drawable/top_coror_purple_bg"
+            android:background="@drawable/draw_border_medium_purple"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline10"

@@ -16,18 +16,13 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.DialogFragmentNavigatorDestinationBuilder
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentChatDetailsBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
-import com.rbt.merchant.domain.use_case.ui_models.chat.MessagesModel
 import com.rbt.merchant.presentation.ui.MainActivity
-import com.rbt.merchant.utils.common.CommonFunction
 import com.rbt.merchant.utils.common.Permissions
 import com.rbt.merchant.utils.common.PermissionsRequestCode
 import com.rbt.merchant.utils.permissionRequestList
@@ -87,10 +82,13 @@ class ChatDetailsFragment : Fragment() {
             }
         viewModel.initialRecyclerView(requireContext(),binding.messagesList)
         binding.openToolBoxImg.setOnClickListener {
-            /*val toolBoxDialogFragment = ToolBoxDialogFragment()
-            toolBoxDialogFragment.show(parentFragmentManager,"tool_box_fragment")*/
-
+            if(binding.chatDetailsDrawerLayout.isOpen) {
+                binding.chatDetailsDrawerLayout.close()
+            }else{
+                binding.chatDetailsDrawerLayout.open()
+            }
         }
+
         return binding.root
     }
 
