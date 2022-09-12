@@ -77,7 +77,7 @@
     <string name="transfer_to_order">تحويل لطلب</string>
     <string name="refer_to_a_complaint">تحويل لشكوى</string>
     <string name="transfer_to_an_inquiry">تحويل لاستفسار</string>
-    <string name="related_orders">Related orders</string>
-    <string name="related_complaints">Related Complaints</string>
-    <string name="related_inquiries">Related Inquiries</string>
+    <string name="related_orders">الطلبات المرتبطة</string>
+    <string name="related_complaints">الشكاوي المرتبطة</string>
+    <string name="related_inquiries">الاستفسارات المرتبطة</string>
 </resources>

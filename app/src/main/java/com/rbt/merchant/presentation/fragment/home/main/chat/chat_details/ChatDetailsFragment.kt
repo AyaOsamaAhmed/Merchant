@@ -37,6 +37,9 @@ class ChatDetailsFragment : Fragment() {
     private val viewModel:ChatDetailsViewModel by lazy {
         ViewModelProvider(this)[ChatDetailsViewModel::class.java]
     }
+    private val chatsettingViewModel:ChatSettingViewModel by lazy {
+        ViewModelProvider(this)[ChatSettingViewModel::class.java]
+    }
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     private var isRecordPermissionGranted = false
     private var isCameraPermissionGranted = false
@@ -58,6 +61,7 @@ class ChatDetailsFragment : Fragment() {
         binding.model = chat
         binding.viewModel = viewModel
         adapter = viewModel.adapter
+        binding.toolBoxFragmentLayout.viewModel = chatsettingViewModel
         viewModel.isRecording.observe(viewLifecycleOwner){
             isRecording = it
         }
@@ -88,6 +92,7 @@ class ChatDetailsFragment : Fragment() {
                 binding.chatDetailsDrawerLayout.open()
             }
         }
+
 
         return binding.root
     }
