@@ -18,8 +18,10 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.DialogFragmentNavigatorDestinationBuilder
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.FragmentChatDetailsBinding
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
@@ -55,6 +57,7 @@ class ChatDetailsFragment : Fragment() {
     ): View {
         binding = FragmentChatDetailsBinding.inflate(inflater, container, false)
         (activity as MainActivity?)!!.showNavBottom(false)
+        (activity as MainActivity?)!!.showNavDrawer(false)
         (activity as MainActivity?)!!.showToolBar(false)
         val chat = arguments?.getParcelable<Chat>("Chat")
         binding.model = chat
@@ -83,6 +86,11 @@ class ChatDetailsFragment : Fragment() {
                     ?: isReadPermissionGranted
             }
         viewModel.initialRecyclerView(requireContext(),binding.messagesList)
+        binding.openToolBoxImg.setOnClickListener {
+            /*val toolBoxDialogFragment = ToolBoxDialogFragment()
+            toolBoxDialogFragment.show(parentFragmentManager,"tool_box_fragment")*/
+            binding.toolBoxFragmentLayout.root.visibility = View.VISIBLE
+        }
         return binding.root
     }
 

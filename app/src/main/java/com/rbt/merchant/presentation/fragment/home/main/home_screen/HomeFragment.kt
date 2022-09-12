@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         (activity as MainActivity?)!!.showNavBottom(true)
         (activity as MainActivity?)!!.showToolBar(true)
-        (activity as MainActivity?)!!.showNavDrawer(false)
+        (activity as MainActivity?)!!.showNavDrawer(true)
         (activity as MainActivity?)!!.showFragmentTitle(true, R.string.home)
         (activity as MainActivity?)!!.showProfileImage(true)
         fusedLocationProviderClient =

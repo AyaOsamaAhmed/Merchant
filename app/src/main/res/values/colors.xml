@@ -6,12 +6,14 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="black_semi_gray">#343A40</color>
     <color name="white">#FFFFFFFF</color>
     <!--<color name="accent_color">#fdc200</color>-->
     <color name="gray">#81706C6C</color>
     <color name="light_gray">#EAEAEA</color>
     <color name="white_gray">#81DFDCDC</color>
     <color name="shadow_gray">#57EAEAEA</color>
+    <color name="trans_shadow_gray">#8B8F8D8D</color>
     <color name="background_gray">#F4F4F4</color>
     <color name="main_layout_background">#FCFCFC</color>
     <color name="indicator">#B4B1B1</color>

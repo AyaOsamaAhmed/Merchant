@@ -62,4 +62,11 @@
     <string name="client_information">Client Information</string>
     <string name="delivery_information">Delivery Information</string>
     <string name="branch">Branch</string>
+    <string name="conversational_options">Conversational Options</string>
+    <string name="transfer_to_order">Transfer to order</string>
+    <string name="refer_to_a_complaint">Refer to a complaint</string>
+    <string name="transfer_to_an_inquiry">Transfer to an inquiry</string>
+    <string name="related_orders">Related orders</string>
+    <string name="related_complaints">Related Complaints</string>
+    <string name="related_inquiries">Related Inquiries</string>
 </resources>

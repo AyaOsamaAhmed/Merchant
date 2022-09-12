@@ -73,4 +73,11 @@
     <string name="delivery_information">بيانات التوصيل</string>
     <string name="branch">الفرع</string>
     <string name="product_price_format">%s س.ر</string>
+    <string name="conversational_options">خيارات المحادثة</string>
+    <string name="transfer_to_order">تحويل لطلب</string>
+    <string name="refer_to_a_complaint">تحويل لشكوى</string>
+    <string name="transfer_to_an_inquiry">تحويل لاستفسار</string>
+    <string name="related_orders">Related orders</string>
+    <string name="related_complaints">Related Complaints</string>
+    <string name="related_inquiries">Related Inquiries</string>
 </resources>

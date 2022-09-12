@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.rbt.merchant.domain.use_case.ui_models.chat.Chat" />
+
         <variable
             name="viewModel"
             type="com.rbt.merchant.presentation.fragment.home.main.chat.chat_details.ChatDetailsViewModel" />
     </data>
-
+<androidx.drawerlayout.widget.DrawerLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -90,8 +94,8 @@
             android:id="@+id/messages_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:background="@color/main_layout_background"
+            android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -117,10 +121,10 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:contentDescription="@string/send_message"
                 android:padding="@dimen/_3sdp"
-                app:srcCompat="@drawable/ic_send"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_send"
                 app:tint="@color/purple_500" />
 
             <ImageView
@@ -170,16 +174,41 @@
                 android:id="@+id/message_edit_text"
                 android:layout_width="@dimen/_180sdp"
                 android:layout_height="@dimen/_40sdp"
+                android:autofillHints="creditCardExpirationMonth"
                 android:background="@drawable/draw_border_medium_white"
                 android:hint="@string/type_a_message"
                 android:inputType="text"
                 android:padding="@dimen/_10sdp"
-                android:autofillHints="creditCardExpirationMonth"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/add_new_message_img"
                 app:layout_constraintStart_toEndOf="@+id/camera_btn"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/open_tool_box_img"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/top_coror_purple_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/tool_box_fragment_layout"
+        layout="@layout/chat_tool_box_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.drawerlayout.widget.DrawerLayout>
 </layout>

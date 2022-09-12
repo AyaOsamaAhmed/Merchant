@@ -18,6 +18,8 @@ import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED
+import androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_OPEN
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -221,10 +223,12 @@ class MainActivity : AppCompatActivity(), ShowPinedComponent , NavigationView.On
         if(check) {
             //binding.appbarLayout.visibility = View.VISIBLE
             binding.navView.visibility = View.VISIBLE
+          //  binding.drawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_OPEN)
         }
         else {
           //  binding.appbarLayout.visibility = View.GONE
             binding.navView.visibility = View.GONE
+           // binding.drawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_CLOSED)
         }
     }
 
