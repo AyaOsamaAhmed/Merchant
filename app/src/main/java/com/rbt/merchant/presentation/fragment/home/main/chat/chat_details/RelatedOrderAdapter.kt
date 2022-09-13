@@ -3,25 +3,17 @@ package com.rbt.merchant.presentation.fragment.home.main.chat.chat_details
 
 import android.content.Context
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.rbt.merchant.R
-import com.rbt.merchant.databinding.ItemChatBinding
 import com.rbt.merchant.databinding.OrdersToolBoxListItemBinding
-import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
-import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
 
 private const val TAG = "RelatedOrderAdapter"
-class RelatedOrderAdapter: ListAdapter<String, RelatedOrderAdapter.ViewHolder>(ChatModelDiffCallback()) {
+class RelatedOrderAdapter: ListAdapter<String, RelatedOrderAdapter.ViewHolder>(RelatedOrderModelDiffCallback()) {
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -35,9 +27,9 @@ class RelatedOrderAdapter: ListAdapter<String, RelatedOrderAdapter.ViewHolder>(C
         holder.bind(getItem(position), context)
     }
 
-    class ChatModelDiffCallback : DiffUtil.ItemCallback<String>() {
+    class RelatedOrderModelDiffCallback : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
-            TODO("Not yet implemented")
+            return oldItem == newItem
         }
 
         override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {

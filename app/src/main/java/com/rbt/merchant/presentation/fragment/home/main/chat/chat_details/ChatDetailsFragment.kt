@@ -16,7 +16,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.drawerlayout.widget.DrawerLayout
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -37,7 +37,7 @@ class ChatDetailsFragment : Fragment() {
     private val viewModel:ChatDetailsViewModel by lazy {
         ViewModelProvider(this)[ChatDetailsViewModel::class.java]
     }
-    private val chatsettingViewModel:ChatSettingViewModel by lazy {
+    private val chatSettingViewModel:ChatSettingViewModel by lazy {
         ViewModelProvider(this)[ChatSettingViewModel::class.java]
     }
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
@@ -47,6 +47,7 @@ class ChatDetailsFragment : Fragment() {
     private var isReadPermissionGranted = false
 
     private lateinit var adapter: MessagesAdapter
+    private lateinit var relatedOrderAdapter: RelatedOrderAdapter
     private var isRecording: Boolean? = null
 
     override fun onCreateView(
@@ -61,7 +62,8 @@ class ChatDetailsFragment : Fragment() {
         binding.model = chat
         binding.viewModel = viewModel
         adapter = viewModel.adapter
-        binding.toolBoxFragmentLayout.viewModel = chatsettingViewModel
+        relatedOrderAdapter = RelatedOrderAdapter()
+        binding.toolBoxFragmentLayout.viewModel = chatSettingViewModel
         viewModel.isRecording.observe(viewLifecycleOwner){
             isRecording = it
         }
@@ -92,8 +94,43 @@ class ChatDetailsFragment : Fragment() {
                 binding.chatDetailsDrawerLayout.open()
             }
         }
+        chatSettingViewModel.requestRelatedOrdersLiveData.observe(viewLifecycleOwner){ orders ->
+            val data = orders as ArrayList<String>
+            relatedOrderAdapter.submitList(data)
+            binding.toolBoxFragmentLayout.relatedOrdersRv.adapter = relatedOrderAdapter
+        }
+        chatSettingViewModel.requestRelatedComplaintsLiveData.observe(viewLifecycleOwner){ complaints ->
+            val data = complaints as ArrayList<String>
+            relatedOrderAdapter.submitList(data)
+            binding.toolBoxFragmentLayout.relatedComplaintsRv.adapter = relatedOrderAdapter
+        }
+        chatSettingViewModel.requestRelatedInquiriesLiveData.observe(viewLifecycleOwner){ inquiries ->
+            val data = inquiries as ArrayList<String>
+            relatedOrderAdapter.submitList(data)
+            binding.toolBoxFragmentLayout.relatedInquiriesRv.adapter = relatedOrderAdapter
+        }
 
-
+        binding.toolBoxFragmentLayout.relatedOrdersTxtLabel.setOnClickListener {
+            if(binding.toolBoxFragmentLayout.relatedOrdersRv.isVisible){
+                binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.GONE
+            }else{
+                binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.VISIBLE
+            }
+        }
+        binding.toolBoxFragmentLayout.relatedComplaintsTxtLabel.setOnClickListener {
+            if(binding.toolBoxFragmentLayout.relatedComplaintsRv.isVisible){
+                binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.GONE
+            }else{
+                binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.VISIBLE
+            }
+        }
+        binding.toolBoxFragmentLayout.relatedInquiriesTxtLabel.setOnClickListener {
+            if(binding.toolBoxFragmentLayout.relatedInquiriesRv.isVisible){
+                binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.GONE
+            }else{
+                binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.VISIBLE
+            }
+        }
         return binding.root
     }
 
@@ -184,6 +221,7 @@ class ChatDetailsFragment : Fragment() {
             }
         }
     }
+
     // fetch permissions needed at this fragment
     private fun fetchRecordPermission() {
         isRecordPermissionGranted = ContextCompat.checkSelfPermission(

@@ -22,6 +22,7 @@
             tools:text="طلب رقم 1234568795"
             android:textColor="@color/cardview_dark_background"
             android:textSize="@dimen/_10sdp"
+            android:text="@{model}"
             android:fontFamily="@font/cairo_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
