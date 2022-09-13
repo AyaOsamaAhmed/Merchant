@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:layout_marginVertical="@dimen/_2sdp"
+    app:cardBackgroundColor="@color/purple_500"
+    app:cardCornerRadius="@dimen/_20sdp"
+    app:cardElevation="0dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/branch_selected_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_2sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        tools:text="اسم الفرع" />
+
+
+</androidx.cardview.widget.CardView>

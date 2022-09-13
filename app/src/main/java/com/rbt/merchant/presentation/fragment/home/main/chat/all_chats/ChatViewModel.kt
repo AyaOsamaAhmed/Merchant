@@ -8,6 +8,8 @@ class ChatViewModel : ViewModel() {
 
     var requestChatListLiveData = MutableLiveData<ArrayList<Chat>>()
     private var chatData: ArrayList<Chat> = arrayListOf()
+    var requestBranchesListLiveData = MutableLiveData<ArrayList<String>>()
+    private var branchesData: ArrayList<String> = arrayListOf()
 
     private val image2 =
         "https://rbt-merchant-assets.s3.eu-central-1.amazonaws.com/images/product-img.png"
@@ -24,6 +26,10 @@ class ChatViewModel : ViewModel() {
             chatData.add(Chat(i, image2, "userName $i", "last Message $i", "2:0$i", i + 10))
         }
         requestChatListLiveData.value = chatData
+        repeat(10) { i ->
+            branchesData.add("اسم الفرع $i")
+        }
+        requestBranchesListLiveData.value = branchesData
     }
 
 

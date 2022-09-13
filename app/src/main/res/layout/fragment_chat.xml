@@ -13,19 +13,35 @@
         android:background="@color/main_layout_background"
         tools:context=".presentation.fragment.home.main.chat.all_chats.ChatFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/offered_chats_rv"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/branches_tab_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:tabMode="scrollable"
+            app:tabGravity="center"
+            app:tabIndicatorAnimationDuration="500"
+            app:tabIndicatorGravity="stretch"
+            app:tabSelectedTextColor="@color/white"
+            app:tabIndicatorAnimationMode="linear"
+            app:tabIndicator="@drawable/branches_tab_selected_bg"
+            app:tabBackground="@drawable/branches_tab_unselected_bg"
+            app:tabTextColor="@color/gray"
+            app:tabRippleColor="@color/purple_200"
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/branches_view_pager"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:animateLayoutChanges="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
-            app:layout_constraintStart_toEndOf="@+id/guideline6"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:itemCount="10"
-            tools:listitem="@layout/item_chat" />
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/branches_tab_layout" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline6"
