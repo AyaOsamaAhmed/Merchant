@@ -111,25 +111,13 @@ class ChatDetailsFragment : Fragment() {
         }
 
         binding.toolBoxFragmentLayout.relatedOrdersTxtLabel.setOnClickListener {
-            if(binding.toolBoxFragmentLayout.relatedOrdersRv.isVisible){
-                binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.GONE
-            }else{
-                binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.VISIBLE
-            }
+            switchRV(0)
         }
         binding.toolBoxFragmentLayout.relatedComplaintsTxtLabel.setOnClickListener {
-            if(binding.toolBoxFragmentLayout.relatedComplaintsRv.isVisible){
-                binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.GONE
-            }else{
-                binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.VISIBLE
-            }
+            switchRV(1)
         }
         binding.toolBoxFragmentLayout.relatedInquiriesTxtLabel.setOnClickListener {
-            if(binding.toolBoxFragmentLayout.relatedInquiriesRv.isVisible){
-                binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.GONE
-            }else{
-                binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.VISIBLE
-            }
+            switchRV(2)
         }
         return binding.root
     }
@@ -253,6 +241,43 @@ class ChatDetailsFragment : Fragment() {
         }
         if (permissionRequestList.isNotEmpty()) {
             permissionLauncher.launch(permissionRequestList.toTypedArray())
+        }
+    }
+    fun switchRV(rvId:Int):Boolean{
+        when(rvId){
+            0 ->{
+                if(binding.toolBoxFragmentLayout.relatedOrdersRv.isVisible){
+                    binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.GONE
+                }else{
+                    binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.VISIBLE
+                    binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.GONE
+                    binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.GONE
+                }
+                return true
+            }
+            1 ->{
+                if(binding.toolBoxFragmentLayout.relatedComplaintsRv.isVisible){
+                    binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.GONE
+                }else{
+                    binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.VISIBLE
+                    binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.GONE
+                    binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.GONE
+                }
+                return true
+            }
+            2 ->{
+                if(binding.toolBoxFragmentLayout.relatedInquiriesRv.isVisible){
+                    binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.GONE
+                }else{
+                    binding.toolBoxFragmentLayout.relatedInquiriesRv.visibility = View.VISIBLE
+                    binding.toolBoxFragmentLayout.relatedComplaintsRv.visibility = View.GONE
+                    binding.toolBoxFragmentLayout.relatedOrdersRv.visibility = View.GONE
+                }
+                return true
+            }
+            else -> {
+                return false
+            }
         }
     }
 }

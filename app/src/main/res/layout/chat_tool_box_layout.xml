@@ -32,6 +32,7 @@
                 android:text="@string/conversational_options"
                 android:textColor="@color/purple_500"
                 android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/cairo_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,6 +48,7 @@
                 android:text="@string/transfer_to_order"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/cairo_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/conversational_options_txt" />
@@ -62,6 +64,7 @@
                 android:text="@string/refer_to_a_complaint"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/cairo_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/transfer_to_order_btn" />
@@ -77,6 +80,7 @@
                 android:text="@string/transfer_to_an_inquiry"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/cairo_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/refer_to_a_complaint_btn" />
@@ -87,7 +91,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/_20sdp"
                 android:background="@drawable/chats_time_background_gray"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/transfer_to_an_inquiry_btn">
