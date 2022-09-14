@@ -34,9 +34,10 @@ class ChatFragment : Fragment() {
         viewModel = ViewModelProvider(this)[ChatViewModel::class.java]
         (activity as MainActivity?)!!.showNavBottom(true)
         (activity as MainActivity?)!!.showToolBar(true)
-        (activity as MainActivity?)!!.showNavDrawer(false)
+        (activity as MainActivity?)!!.showNavDrawer(true)
         (activity as MainActivity?)!!.showFragmentTitle(true, R.string.offered_chats)
         (activity as MainActivity?)!!.showProfileImage(true)
+        (activity as MainActivity?)!!.showListImage(true)
         branchesPagerAdapter = DynamicFragmentAdapter(requireActivity())
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

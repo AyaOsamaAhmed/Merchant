@@ -54,6 +54,7 @@ class HomeFragment : Fragment() {
         (activity as MainActivity?)!!.showNavDrawer(true)
         (activity as MainActivity?)!!.showFragmentTitle(true, R.string.home)
         (activity as MainActivity?)!!.showProfileImage(true)
+        (activity as MainActivity?)!!.showListImage(true)
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
         activity?.onBackPressedDispatcher?.addCallback(

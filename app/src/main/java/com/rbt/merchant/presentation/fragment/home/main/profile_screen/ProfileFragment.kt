@@ -21,9 +21,10 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater,container,false)
         (activity as MainActivity?)!!.showNavBottom(true)
         (activity as MainActivity?)!!.showToolBar(true)
-        (activity as MainActivity?)!!.showNavDrawer(false)
+        (activity as MainActivity?)!!.showNavDrawer(true)
         (activity as MainActivity?)!!.showFragmentTitle(true,R.string.profile)
         (activity as MainActivity?)!!.showProfileImage(true)
+        (activity as MainActivity?)!!.showListImage(true)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToHomeFragment2())

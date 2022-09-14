@@ -42,6 +42,7 @@ class OrderDetailsFragment : Fragment(), OnMapReadyCallback {
         (activity as MainActivity?)!!.showNavDrawer(false)
         (activity as MainActivity?)!!.showFragmentTitle(false, null)
         (activity as MainActivity?)!!.showProfileImage(false)
+        (activity as MainActivity?)!!.showListImage(false)
         val orderId = arguments?.getString("order_id")
         binding.orderNumberTxtOrderDetails.text = orderId.toString()
         adapterStatus.submitStatus(OrderDetailsStatusModel(orderId!!.toInt() ,2,"12:48م"))
