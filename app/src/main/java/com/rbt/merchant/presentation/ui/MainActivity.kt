@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity(), ShowPinedComponent , NavigationView.On
         showNavDrawer(false)
         showFragmentTitle(false,null)
         showProfileImage(false)
+        showListImage(false)
         binding.bottomNav.setupWithNavController(navController)
     }
 
@@ -260,6 +261,15 @@ class MainActivity : AppCompatActivity(), ShowPinedComponent , NavigationView.On
         else {
             //  binding.appbarLayout.visibility = View.GONE
             binding.openProfileImg.visibility = View.GONE
+        }
+    }
+
+    override fun showListImage(check: Boolean) {
+        if(check) {
+            binding.openSideMenuImg.visibility = View.VISIBLE
+        }
+        else {
+            binding.openSideMenuImg.visibility = View.GONE
         }
     }
 

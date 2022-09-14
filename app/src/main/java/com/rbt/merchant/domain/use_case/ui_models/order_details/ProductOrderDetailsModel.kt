@@ -1,5 +1,9 @@
 package com.rbt.merchant.domain.use_case.ui_models.order_details
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class ProductOrderDetailsModel(
     val id : Int ,
     val product_name:String,
@@ -8,4 +12,4 @@ data class ProductOrderDetailsModel(
     val product_old_price:Int?=null,
     val product_image:String,
     val colorList:List<String>
-)
+): Parcelable

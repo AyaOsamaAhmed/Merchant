@@ -31,7 +31,8 @@ class BranchesManagementFragment : Fragment() {
         (activity as MainActivity?)!!.showToolBar(true)
         (activity as MainActivity?)!!.showNavDrawer(false)
         (activity as MainActivity?)!!.showFragmentTitle(true, R.string.branch_managing)
-        (activity as MainActivity?)!!.showProfileImage(true)
+        (activity as MainActivity?)!!.showProfileImage(false)
+        (activity as MainActivity?)!!.showListImage(false)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().navigate(BranchesManagementFragmentDirections.actionBranchesManagementFragmentToProfileFragment())

@@ -93,6 +93,7 @@
                 tools:text="200 ريال" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/branch_product_managing_btn"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"

@@ -128,6 +128,18 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_branchesManagementFragment_to_productManagingFragment2"
+            app:destination="@id/productManagingFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/productManagingFragment2"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.branch_managing.ProductManagingFragment"
+        android:label="ProductManagingFragment"
+        tools:layout="@layout/fragment_product_managing">
+        <argument
+            android:name="ProductData"
+            app:argType="com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel" />
     </fragment>
 
 </navigation>

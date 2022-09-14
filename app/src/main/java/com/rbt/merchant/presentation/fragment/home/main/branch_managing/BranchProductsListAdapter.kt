@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -53,8 +55,13 @@ class BranchProductsListAdapter: ListAdapter<ProductOrderDetailsModel, BranchPro
             }else{
                 itemRowBinding.branchOldPriceTv.paintFlags = itemRowBinding.branchOldPriceTv.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             }
+
             itemRowBinding.setVariable(BR.model, obj)
             itemRowBinding.executePendingBindings()
+            itemRowBinding.branchProductManagingBtn.setOnClickListener {
+                val navController: NavController = Navigation.findNavController(itemView)
+                navController.navigate(BranchesManagementFragmentDirections.actionBranchesManagementFragmentToProductManagingFragment2(obj))
+            }
             
         }
     }

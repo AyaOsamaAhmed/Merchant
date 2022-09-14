@@ -6,4 +6,5 @@ interface ShowPinedComponent {
     fun showToolBar(check : Boolean)
     fun showFragmentTitle(check : Boolean,titleResource:Int?)
     fun showProfileImage(check : Boolean)
+    fun showListImage(check : Boolean)
 }
