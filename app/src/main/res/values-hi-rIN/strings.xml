@@ -85,4 +85,7 @@
     <string name="effective">Effective</string>
     <string name="product_managing">Product Managing</string>
     <string name="not_effective">Not Effective</string>
+    <string name="quantity_available">Quantity Available</string>
+    <string name="product_status">Product Status</string>
+    <string name="not_active">Not Active</string>
 </resources>

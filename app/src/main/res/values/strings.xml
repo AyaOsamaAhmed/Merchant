@@ -29,6 +29,7 @@
     <string name="select_language">Select Language</string>
     <string name="store_name">Store Name</string>
     <string name="active">Active</string>
+    <string name="not_active">Not Active</string>
     <string name="driver_profile_pic">driver profile pic</string>
     <string name="home_fragment">Home Fragment</string>
     <string name="list_image">list Image</string>
@@ -85,4 +86,6 @@
     <string name="effective">Effective</string>
     <string name="not_effective">Not Effective</string>
     <string name="product_managing">Product Managing</string>
+    <string name="quantity_available">Quantity Available</string>
+    <string name="product_status">Product Status</string>
 </resources>

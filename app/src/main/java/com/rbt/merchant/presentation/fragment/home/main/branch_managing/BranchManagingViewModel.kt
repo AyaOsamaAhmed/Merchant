@@ -29,6 +29,7 @@ class BranchManagingViewModel : ViewModel() {
                         product_number = "5",
                         product_price = 200,
                         product_old_price = 500,
+                        product_availability = true,
                         colorList = listOf("ابيض", "ابيض", "ابيض")
                     )
                 )
@@ -40,6 +41,7 @@ class BranchManagingViewModel : ViewModel() {
                         product_image = image2,
                         product_number = "5",
                         product_price = 200,
+                        product_availability = true,
                         colorList = listOf("ابيض", "ابيض", "ابيض")
                     )
                 )

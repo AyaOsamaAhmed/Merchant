@@ -64,8 +64,9 @@
                     android:visibility="gone" />-->
                 <TextView
                     android:id="@+id/fragment_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_alignTop="@+id/open_side_menu_img"
                     android:layout_alignBottom="@+id/open_side_menu_img"
                     android:layout_alignParentEnd="true"

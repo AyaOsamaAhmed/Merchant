@@ -72,4 +72,6 @@
     <string name="delivery_status">Delivery Status</string>
     <string name="effective">Effective</string>
     <string name="product_managing">Product Managing</string>
+    <string name="quantity_available">Quantity Available</string>
+    <string name="product_status">Product Status</string>
 </resources>
