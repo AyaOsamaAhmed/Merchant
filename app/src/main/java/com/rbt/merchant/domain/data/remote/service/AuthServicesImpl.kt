@@ -7,7 +7,7 @@ import com.rbt.merchant.domain.data.remote.model.response.auth_feature.confirm_o
 import com.rbt.merchant.domain.data.remote.model.response.auth_feature.logout.LogoutResponseModel
 import com.rbt.merchant.domain.data.remote.model.response.auth_feature.phone_auth.PhoneAuthResponseModel
 import com.rbt.merchant.domain.data.remote.model.response.auth_feature.resend_otp.ResendOtpResponseModel
-import com.rbt.merchant.utils.constants.Constant
+import com.rbt.merchant.utils.constants.APIsConstant
 import io.ktor.client.features.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -31,7 +31,7 @@ object AuthServicesImpl : AuthApi {
             // hit base url with the endpoint for sign up process
             // with phoneNumber as parameter for api
             // and check if the api throw any exception
-            httpClient.post(path = Constant.SIGNUP_API) {
+            httpClient.post(path = APIsConstant.SIGNUP_API) {
                 parameter("phoneNumber", phoneNumber)
             }
         } catch (cre: ClientRequestException) {
@@ -52,7 +52,7 @@ object AuthServicesImpl : AuthApi {
             // hit base url with the endpoint for confirm otp process
             // with otp and phoneNumber as parameters for api
             // and check if the api throw any exception
-            httpClient.post(path = Constant.CONFIRM_OTP_API) {
+            httpClient.post(path = APIsConstant.CONFIRM_OTP_API) {
                 parameter("otp", otp)
                 parameter("phoneNumber", phoneNumber)
             }
@@ -72,7 +72,7 @@ object AuthServicesImpl : AuthApi {
             // hit base url with the endpoint for resend otp process
             // with phoneNumber as parameters for api
             // and check if the api throw any exception
-            httpClient.post(path = Constant.RESEND_OTP) {
+            httpClient.post(path = APIsConstant.RESEND_OTP) {
                 parameter("phoneNumber", phoneNumber)
             }
         } catch (cre: ClientRequestException) {
@@ -92,7 +92,7 @@ object AuthServicesImpl : AuthApi {
             // hit base url with the endpoint for logout process
             // without any parameters for api
             // and check if the api throw any exception
-            httpClient.post(path = Constant.LOGOUT_API)
+            httpClient.post(path = APIsConstant.LOGOUT_API)
         } catch (cre: ClientRequestException) {
             val content = cre.response.readText(Charset.defaultCharset())
             Gson().fromJson(content, LogoutResponseModel::class.java)

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_2sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginVertical="@dimen/_5sdp">
+
+            <ImageView
+                android:id="@+id/branch_product_img"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:contentDescription="@string/product_image"
+                app:bindImgUrl="@{model.product_image}"
+                app:bindProgressItem="@{progressBar}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/purple_500"
+                app:layout_constraintBottom_toBottomOf="@+id/branch_product_img"
+                app:layout_constraintEnd_toEndOf="@+id/branch_product_img"
+                app:layout_constraintStart_toStartOf="@+id/branch_product_img"
+                app:layout_constraintTop_toTopOf="@+id/branch_product_img" />
+
+            <TextView
+                android:id="@+id/branch_product_name_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:maxEms="4"
+                android:maxLines="3"
+                android:text="@{model.product_name}"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/branch_product_img"
+                tools:text="عطر الأزرق - اسم المنتج المطلوب" />
+
+            <TextView
+                android:id="@+id/branch_old_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:fontFamily="@font/cairo_semi_bold"
+                android:text="@{String.format(@string/product_price_format, model.product_old_price)}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/branch_product_name_txt"
+                tools:text="200 ريال" />
+
+            <TextView
+                android:id="@+id/branch_new_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:fontFamily="@font/cairo_semi_bold"
+                android:text="@{String.format(@string/product_price_format, model.product_price)}"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/branch_old_price_tv"
+                tools:text="200 ريال" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/draw_border_medium_purple"
+                android:fontFamily="@font/cairo_regular"
+                android:text="@string/product_managing"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/branch_new_price_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

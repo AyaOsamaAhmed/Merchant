@@ -71,7 +71,12 @@ class ChatDetailsFragment : Fragment() {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    findNavController().navigateUp()
+                    if(binding.chatDetailsDrawerLayout.isOpen){
+                        binding.chatDetailsDrawerLayout.close()
+                    }else{
+                        findNavController().navigate(ChatDetailsFragmentDirections.actionChatDetailsFragmentToChatFragment())
+                    }
+
                 }
             })
         permissionLauncher =

@@ -80,4 +80,8 @@
     <string name="related_orders">الطلبات المرتبطة</string>
     <string name="related_complaints">الشكاوي المرتبطة</string>
     <string name="related_inquiries">الاستفسارات المرتبطة</string>
+    <string name="branch_managing">أداره الفروع</string>
+    <string name="delivery_status">حالة التوصيل</string>
+    <string name="effective">فعال</string>
+    <string name="product_managing">أدار المنتج</string>
 </resources>

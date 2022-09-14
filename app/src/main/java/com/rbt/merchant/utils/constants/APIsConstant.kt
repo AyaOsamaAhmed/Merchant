@@ -3,7 +3,7 @@ package com.rbt.merchant.utils.constants
 /**
  * All API Endpoint stored in constant value
  */
-object Constant {
+object APIsConstant {
     //auth api const values
     const val SIGNUP_API = "api/v1/auth/phone"
     const val CONFIRM_OTP_API = "api/v1/auth/confirm-otp"

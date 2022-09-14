@@ -1,48 +1,43 @@
-package com.rbt.merchant.presentation.fragment.home.main.chat.all_chats
+package com.rbt.merchant.presentation.fragment.home.main.branch_managing
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.MarginLayoutParams
-import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
-import androidx.core.view.ViewCompat
-import androidx.core.view.marginStart
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.rbt.merchant.R
-import com.rbt.merchant.databinding.FragmentChatBinding
+import com.rbt.merchant.databinding.FragmentBranchesManagementBinding
 import com.rbt.merchant.presentation.ui.MainActivity
 import com.rbt.merchant.utils.DynamicFragmentAdapter
 import com.rbt.merchant.utils.constants.CurrentFragmentConstant
-import com.rbt.merchant.utils.sharedPref
 
 
-class ChatFragment : Fragment() {
-    private lateinit var binding: FragmentChatBinding
-    private lateinit var viewModel : ChatViewModel
+class BranchesManagementFragment : Fragment() {
+    private lateinit var binding:FragmentBranchesManagementBinding
+    private val viewModel:BranchesManagementViewModel by lazy {
+        ViewModelProvider(this)[BranchesManagementViewModel::class.java]
+    }
     private lateinit var branchesPagerAdapter : DynamicFragmentAdapter
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentChatBinding.inflate(inflater,container,false)
-        viewModel = ViewModelProvider(this)[ChatViewModel::class.java]
+        binding = FragmentBranchesManagementBinding.inflate(inflater,container,false)
         (activity as MainActivity?)!!.showNavBottom(true)
         (activity as MainActivity?)!!.showToolBar(true)
         (activity as MainActivity?)!!.showNavDrawer(false)
-        (activity as MainActivity?)!!.showFragmentTitle(true, R.string.offered_chats)
+        (activity as MainActivity?)!!.showFragmentTitle(true, R.string.branch_managing)
         (activity as MainActivity?)!!.showProfileImage(true)
-        branchesPagerAdapter = DynamicFragmentAdapter(requireActivity())
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                findNavController().navigate(ChatFragmentDirections.actionChatFragmentToHomeFragment2())
+                findNavController().navigate(BranchesManagementFragmentDirections.actionBranchesManagementFragmentToProfileFragment())
             }
         })
+        branchesPagerAdapter = DynamicFragmentAdapter(requireActivity())
         return binding.root
     }
 
@@ -50,7 +45,7 @@ class ChatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.requestBranchesListLiveData.observe(viewLifecycleOwner) { branchNameList ->
             val data = branchNameList as ArrayList<String>
-            branchesPagerAdapter.setBranchesList(branchNameList,CurrentFragmentConstant.CHAT_FRAG)
+            branchesPagerAdapter.setBranchesList(branchNameList,CurrentFragmentConstant.BRANCH_MANAGEMENT_FRAG)
             binding.branchesViewPager.adapter = branchesPagerAdapter
 
             TabLayoutMediator(
@@ -61,7 +56,7 @@ class ChatFragment : Fragment() {
             }.attach()
             for (branch in data) {
                 val tab = (binding.branchesTabLayout.getChildAt(0) as ViewGroup).getChildAt(data.indexOf(branch))
-                val p = tab.layoutParams as MarginLayoutParams
+                val p = tab.layoutParams as ViewGroup.MarginLayoutParams
                 p.setMargins(0, 0, 25, 0)
                 tab.requestLayout()
             }
