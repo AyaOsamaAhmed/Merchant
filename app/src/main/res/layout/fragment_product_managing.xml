@@ -43,12 +43,15 @@
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/active_switcher_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:text="@string/active"
             android:textColor="@color/purple_500"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_14sdp"
+            app:thumbTint="@color/purple_500"
+            app:trackTint="@color/purple_200"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:checked="@{model.product_availability}"
             app:layout_constraintBottom_toBottomOf="@+id/product_status_label"
             app:layout_constraintEnd_toStartOf="@id/guideline7"
@@ -71,9 +74,9 @@
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_15sdp"
             android:src="@drawable/ic_minus"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
             app:layout_constraintBottom_toBottomOf="@+id/quantity_available_label"
-            app:layout_constraintStart_toStartOf="@+id/active_switcher_btn"
+            app:layout_constraintStart_toEndOf="@+id/quantity_available_label"
             app:layout_constraintTop_toTopOf="@+id/quantity_available_label" />
 
         <TextView

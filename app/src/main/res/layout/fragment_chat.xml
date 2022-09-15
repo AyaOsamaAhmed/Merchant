@@ -15,9 +15,10 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/branches_tab_layout"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/main_layout_background"
             app:tabMode="scrollable"
             app:tabGravity="center"
             app:tabIndicatorAnimationDuration="500"

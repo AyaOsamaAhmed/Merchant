@@ -14,11 +14,12 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/branches_tab_layout"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
-            app:tabMode="scrollable"
+            app:tabMode="auto"
             app:tabGravity="center"
+            android:background="@color/main_layout_background"
             app:tabIndicatorAnimationDuration="500"
             app:tabIndicatorGravity="stretch"
             app:tabSelectedTextColor="@color/white"

@@ -32,12 +32,16 @@
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/active_switcher_btn"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_100sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="@string/effective"
                 android:textColor="@color/purple_500"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_14sdp"
+                android:gravity="center"
+                app:thumbTint="@color/purple_500"
+                app:trackTint="@color/purple_200"
+                android:buttonTint="@color/purple_200"
                 app:layout_constraintBottom_toBottomOf="@+id/delivery_status_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/delivery_status_label"

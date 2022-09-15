@@ -47,7 +47,6 @@ class BranchManagingFragment(private var position:Int) : Fragment() {
                 binding.activeSwitcherBtn.text = context?.getText(R.string.not_effective)
             }
         }
-
     }
 
 }
