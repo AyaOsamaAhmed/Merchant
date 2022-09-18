@@ -46,7 +46,7 @@ class BranchesManagementFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.requestBranchesListLiveData.observe(viewLifecycleOwner) { branchNameList ->
             val data = branchNameList as ArrayList<String>
-            branchesPagerAdapter.setBranchesList(branchNameList,CurrentFragmentConstant.BRANCH_MANAGEMENT_FRAG)
+            branchesPagerAdapter.setBranchesList(branchNameList.size,CurrentFragmentConstant.BRANCH_MANAGEMENT_FRAG)
             binding.branchesViewPager.adapter = branchesPagerAdapter
 
             TabLayoutMediator(

@@ -1,4 +1,4 @@
-package com.rbt.merchant.presentation.fragment.home.main.chat.chat_details
+package com.rbt.merchant.presentation.fragment.home.main.chat.price_quote
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

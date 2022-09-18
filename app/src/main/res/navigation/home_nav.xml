@@ -157,7 +157,7 @@
     </fragment>
     <fragment
         android:id="@+id/priceQuoteFragment"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.chat.chat_details.PriceQuoteFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.chat.price_quote.PriceQuoteFragment"
         android:label="PriceQuoteFragment"
         tools:layout="@layout/fragment_price_quote">
         <action

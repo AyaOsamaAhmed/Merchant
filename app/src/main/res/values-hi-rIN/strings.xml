@@ -91,4 +91,6 @@
     <string name="send_a_price_quote">Send a price quote</string>
     <string name="receipt_from_the_store">Receipt from store</string>
     <string name="add_product">Add Product</string>
+    <string name="current_product">Current Product</string>
+    <string name="custom_product">Custom Product</string>
 </resources>

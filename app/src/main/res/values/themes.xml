@@ -54,4 +54,19 @@
         <item name="colorOnSurface">@color/purple_500</item>
         <item name="colorSecondary">@color/purple_500</item>
     </style>
+
+   <!-- <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
+        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TabLayout" parent="">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorSurface">@color/purple_500</item>
+        <item name="colorOnSurface">@color/purple_500</item>
+    </style>-->
+    <style name="TextAppearance.App.Tab" parent="TextAppearance.Design.Tab">
+        <item name="fontFamily">@font/cairo_bold</item>
+        <item name="android:fontFamily">@font/cairo_bold</item>
+    </style>
 </resources>

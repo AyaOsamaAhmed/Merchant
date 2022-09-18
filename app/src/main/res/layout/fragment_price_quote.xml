@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/main_layout_background"
-            tools:context=".presentation.fragment.home.main.chat.chat_details.PriceQuoteFragment">
+            tools:context=".presentation.fragment.home.main.chat.price_quote.PriceQuoteFragment">
 
             <TextView
                 android:id="@+id/textView3"
@@ -195,11 +195,11 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
                 app:layout_constraintTop_toBottomOf="@+id/products_label_tv"
                 app:spanCount="2"
-                tools:itemCount="10"
+                tools:itemCount="1"
                 tools:listitem="@layout/price_quote_product_list_item" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
+                android:id="@+id/add_product_card_view"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginVertical="@dimen/_20sdp"
@@ -231,9 +231,9 @@
                 android:text="@string/add_product"
                 android:textAlignment="center"
                 android:textSize="@dimen/_12sdp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView3"
-                app:layout_constraintStart_toStartOf="@+id/cardView3"
-                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+                app:layout_constraintEnd_toEndOf="@+id/add_product_card_view"
+                app:layout_constraintStart_toStartOf="@+id/add_product_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/add_product_card_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"

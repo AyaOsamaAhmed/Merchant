@@ -51,7 +51,7 @@ class ChatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.requestBranchesListLiveData.observe(viewLifecycleOwner) { branchNameList ->
             val data = branchNameList as ArrayList<String>
-            branchesPagerAdapter.setBranchesList(branchNameList,CurrentFragmentConstant.CHAT_FRAG)
+            branchesPagerAdapter.setBranchesList(branchNameList.size,CurrentFragmentConstant.CHAT_FRAG)
             binding.branchesViewPager.adapter = branchesPagerAdapter
 
             TabLayoutMediator(

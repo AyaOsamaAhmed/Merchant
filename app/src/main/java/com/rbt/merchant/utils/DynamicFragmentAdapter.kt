@@ -4,20 +4,22 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.rbt.merchant.presentation.fragment.home.main.branch_managing.BranchManagingFragment
-import com.rbt.merchant.presentation.fragment.home.main.branch_managing.BranchesManagementFragment
 import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatsListFragment
+import com.rbt.merchant.presentation.fragment.home.main.chat.price_quote.CurrentProductListFragment
+import com.rbt.merchant.presentation.fragment.home.main.chat.price_quote.CustomProductFragment
 import com.rbt.merchant.utils.constants.CurrentFragmentConstant
+import kotlin.properties.Delegates
 
 class DynamicFragmentAdapter(fragmentManager: FragmentActivity): FragmentStateAdapter(fragmentManager) {
-    private lateinit var branchesList : ArrayList<String>
+    private var pagerListSize by Delegates.notNull<Int>()
     private lateinit var currentFragment : String
 
     @JvmName("setBranchesList1")
-    fun setBranchesList(branchesList:ArrayList<String>,currentFragment : String){
-        this.branchesList = branchesList
+    fun setBranchesList(pagerListSize:Int,currentFragment : String){
+        this.pagerListSize = pagerListSize
         this.currentFragment = currentFragment
     }
-    override fun getItemCount(): Int = branchesList.size
+    override fun getItemCount(): Int = pagerListSize
 
     override fun createFragment(position: Int): Fragment {
         return when(currentFragment){
@@ -26,6 +28,20 @@ class DynamicFragmentAdapter(fragmentManager: FragmentActivity): FragmentStateAd
             }
             CurrentFragmentConstant.BRANCH_MANAGEMENT_FRAG -> {
                 BranchManagingFragment(position)
+            }
+            CurrentFragmentConstant.PRICE_QUOTE_FRAG -> {
+                when(position){
+                    0 -> {
+                        CurrentProductListFragment()
+                    }
+                    1 -> {
+                        CustomProductFragment()
+                    }
+                    else -> {
+                        CurrentProductListFragment()
+                    }
+                }
+
             }
             else -> {
                 Fragment()

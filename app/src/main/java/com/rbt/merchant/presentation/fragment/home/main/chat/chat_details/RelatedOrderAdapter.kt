@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rbt.merchant.databinding.OrdersToolBoxListItemBinding
 
 private const val TAG = "RelatedOrderAdapter"
-class RelatedOrderAdapter: ListAdapter<String, RelatedOrderAdapter.ViewHolder>(RelatedOrderModelDiffCallback()) {
+class RelatedOrderAdapter: ListAdapter<String, RelatedOrderAdapter.ViewHolder>(
+    RelatedOrderModelDiffCallback()
+) {
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

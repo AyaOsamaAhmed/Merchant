@@ -1,26 +1,22 @@
-package com.rbt.merchant.presentation.fragment.home.main.chat.chat_details
+package com.rbt.merchant.presentation.fragment.home.main.chat.price_quote
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Paint
 import android.os.Build
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.rbt.merchant.BR
-import com.rbt.merchant.databinding.BranchProductsListItemBinding
 import com.rbt.merchant.databinding.PriceQuoteProductListItemBinding
-import com.rbt.merchant.databinding.ProductsOrderDetailsListItemBinding
 import com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel
 
 private const val TAG = "ProductsListOrderDetailsAdapter"
-class PriceQuoteProductsListAdapter: ListAdapter<ProductOrderDetailsModel, PriceQuoteProductsListAdapter.ViewHolder>(ProductsModelDiffCallback()) {
+class PriceQuoteProductsListAdapter: ListAdapter<ProductOrderDetailsModel, PriceQuoteProductsListAdapter.ViewHolder>(
+    ProductsModelDiffCallback()
+) {
     private lateinit var context: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
