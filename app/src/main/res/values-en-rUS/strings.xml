@@ -88,4 +88,7 @@
     <string name="quantity_available">Quantity Available</string>
     <string name="product_status">Product Status</string>
     <string name="not_active">Not Active</string>
+    <string name="send_a_price_quote">Send a price quote</string>
+    <string name="receipt_from_the_store">Receipt from store</string>
+    <string name="add_product">Add Product</string>
 </resources>

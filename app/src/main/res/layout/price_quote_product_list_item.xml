@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel" />
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:background="@color/main_layout_background">
+
+            <ImageView
+                android:id="@+id/price_quote_product_img"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/product_image"
+                android:scaleType="fitXY"
+                app:bindImgUrl="@{model.product_image}"
+                app:bindProgressItem="@{progressBar}"
+                app:layout_constraintBottom_toBottomOf="@+id/product_quantity_num_txt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/purple_500"
+                app:layout_constraintBottom_toBottomOf="@+id/price_quote_product_img"
+                app:layout_constraintEnd_toEndOf="@+id/price_quote_product_img"
+                app:layout_constraintStart_toStartOf="@+id/price_quote_product_img"
+                app:layout_constraintTop_toTopOf="@+id/price_quote_product_img" />
+
+            <TextView
+                android:id="@+id/price_quote_name_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:maxEms="4"
+                android:maxLines="3"
+                android:text="@{model.product_name}"
+                android:textAlignment="center"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/price_quote_product_img"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="عطر الأزرق - اسم المنتج المطلوب" />
+
+            <TextView
+                android:id="@+id/price_quote_new_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="@{String.format(@string/product_price_format, model.product_price)}"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_quote_name_txt"
+                tools:text="200 ريال" />
+
+            <ImageView
+                android:id="@+id/product_minus_img"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:src="@drawable/ic_minus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/price_quote_product_img"
+                app:layout_constraintTop_toBottomOf="@+id/price_quote_new_price_tv" />
+
+            <TextView
+                android:id="@+id/product_quantity_num_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/draw_border_gray_medium_white"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_3sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:text="@{model.product_number}"
+                app:layout_constraintBottom_toBottomOf="@+id/product_minus_img"
+                app:layout_constraintStart_toEndOf="@+id/product_minus_img"
+                app:layout_constraintTop_toTopOf="@+id/product_minus_img"
+                tools:text="1" />
+
+            <ImageView
+                android:id="@+id/product_plus_img"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintBottom_toBottomOf="@+id/product_quantity_num_txt"
+                app:layout_constraintStart_toEndOf="@+id/product_quantity_num_txt"
+                app:layout_constraintTop_toTopOf="@+id/product_quantity_num_txt" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/light_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_quantity_num_txt" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

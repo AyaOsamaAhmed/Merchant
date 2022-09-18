@@ -67,6 +67,7 @@
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_order_details.xml" value="0.176" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_orders.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_phone_auth.xml" value="0.25" />
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_price_quote.xml" value="0.20244565217391305" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_product_managing.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_splash.xml" value="0.25" />
@@ -78,6 +79,7 @@
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/new_order_list_item.xml" value="0.264" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/order_invoice_layout.xml" value="0.23125" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/orders_tool_box_list_item.xml" value="0.23125" />
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/price_quote_product_list_item.xml" value="0.23125" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/products_color_order_details_list_item.xml" value="0.23125" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/products_layout.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/products_order_details_list_item.xml" value="0.23125" />

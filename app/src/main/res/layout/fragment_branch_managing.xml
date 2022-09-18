@@ -39,9 +39,6 @@
                 android:textColor="@color/purple_500"
                 android:textSize="@dimen/_14sdp"
                 android:gravity="center"
-                app:thumbTint="@color/purple_500"
-                app:trackTint="@color/purple_200"
-                android:buttonTint="@color/purple_200"
                 app:layout_constraintBottom_toBottomOf="@+id/delivery_status_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/delivery_status_label"
@@ -53,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:text="@string/products"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/cardview_dark_background"
                 android:textSize="@dimen/_18sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/delivery_status_label" />

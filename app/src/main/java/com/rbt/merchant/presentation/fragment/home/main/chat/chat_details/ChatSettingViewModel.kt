@@ -5,10 +5,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.rbt.merchant.domain.use_case.ui_models.chat.Chat
 
 private const val TAG = "ChatSettingViewModel"
 class ChatSettingViewModel: ViewModel() {
+
     var requestRelatedOrdersLiveData = MutableLiveData<ArrayList<String>>()
     private var relatedOrdersData: ArrayList<String> = arrayListOf()
     var requestRelatedComplaintsLiveData = MutableLiveData<ArrayList<String>>()
@@ -44,6 +47,9 @@ class ChatSettingViewModel: ViewModel() {
         val context = view.context
         Log.d(TAG, "onClickTransferToOrder: تحويل لطلب")
         Toast.makeText(context,"تحويل لطلب",Toast.LENGTH_SHORT).show()
+        val navController: NavController?
+        navController = Navigation.findNavController(view)
+        navController.navigate(ChatDetailsFragmentDirections.actionChatDetailsFragmentToPriceQuoteFragment())
     }
     fun onClickTransferToComplaint(view: View){
         val context = view.context

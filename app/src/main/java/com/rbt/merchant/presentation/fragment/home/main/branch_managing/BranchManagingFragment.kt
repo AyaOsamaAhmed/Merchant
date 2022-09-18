@@ -40,11 +40,11 @@ class BranchManagingFragment(private var position:Int) : Fragment() {
         if (!binding.activeSwitcherBtn.isChecked){
             binding.activeSwitcherBtn.text = context?.getText(R.string.not_effective)
         }
-        binding.activeSwitcherBtn.setOnClickListener {
-            if (binding.activeSwitcherBtn.isChecked){
-                binding.activeSwitcherBtn.text = context?.getText(R.string.effective)
+        binding.activeSwitcherBtn.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked){
+                buttonView.text = context?.getText(R.string.effective)
             }else{
-                binding.activeSwitcherBtn.text = context?.getText(R.string.not_effective)
+                buttonView.text = context?.getText(R.string.not_effective)
             }
         }
     }

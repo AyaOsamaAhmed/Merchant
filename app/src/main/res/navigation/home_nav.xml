@@ -67,6 +67,13 @@
         <argument
             android:name="Chat"
             app:argType="com.rbt.merchant.domain.use_case.ui_models.chat.Chat" />
+        <action
+            android:id="@+id/action_chatDetailsFragment_to_priceQuoteFragment"
+            app:destination="@id/priceQuoteFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/chivalryRBTFragment"
@@ -130,7 +137,11 @@
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_branchesManagementFragment_to_productManagingFragment2"
-            app:destination="@id/productManagingFragment2" />
+            app:destination="@id/productManagingFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/productManagingFragment2"
@@ -140,6 +151,18 @@
         <argument
             android:name="ProductData"
             app:argType="com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel" />
+        <action
+            android:id="@+id/action_productManagingFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/priceQuoteFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.chat.chat_details.PriceQuoteFragment"
+        android:label="PriceQuoteFragment"
+        tools:layout="@layout/fragment_price_quote">
+        <action
+            android:id="@+id/action_priceQuoteFragment_to_chatDetailsFragment"
+            app:destination="@id/chatDetailsFragment" />
     </fragment>
 
 </navigation>
