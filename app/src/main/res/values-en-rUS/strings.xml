@@ -99,4 +99,5 @@
     <string name="choose_an_image">Choose an image</string>
     <string name="product_image_label">Product Image</string>
     <string name="add_to_quote">Add to quote</string>
+    <string name="product_price_discount_format">%1$s%% discount</string>
 </resources>

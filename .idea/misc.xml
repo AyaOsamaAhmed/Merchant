@@ -52,7 +52,7 @@
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/chat_time_item.xml" value="0.25" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/chat_tool_box_layout.xml" value="0.264" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/chats_layout_by_branch.xml" value="0.23125" />
-        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/current_product_list_item.xml" value="0.23125" />
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/current_product_list_item.xml" value="0.4" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/custom_product_list_item.xml" value="0.23125" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/driver_info_card_layout.xml" value="0.23125" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_archive.xml" value="0.178125" />
@@ -72,7 +72,7 @@
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_order_details.xml" value="0.176" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_orders.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_phone_auth.xml" value="0.25" />
-        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_price_quote.xml" value="0.20244565217391305" />
+        <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_price_quote.xml" value="0.129981884057971" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_price_quote_bottom_sheet_dialog.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_product_managing.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/rbtuser/AndroidStudioProjects/merchants-android/app/src/main/res/layout/fragment_profile.xml" value="0.25" />

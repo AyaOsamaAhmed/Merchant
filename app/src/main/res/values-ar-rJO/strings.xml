@@ -99,4 +99,5 @@
     <string name="choose_an_image">اختيار الملف</string>
     <string name="product_image_label">صورة المنتج</string>
     <string name="add_to_quote">إضافة للعرض</string>
+    <string name="product_price_discount_format">%1$s%%  خصم</string>
 </resources>
