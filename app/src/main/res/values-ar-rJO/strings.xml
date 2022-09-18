@@ -93,4 +93,10 @@
     <string name="add_product">أضافه منتج</string>
     <string name="current_product">المنتجات الحالية</string>
     <string name="custom_product">تخصيص منتج</string>
+    <string name="product_name">اسم المنتج</string>
+    <string name="quantity">العدد</string>
+    <string name="price">السعر</string>
+    <string name="choose_an_image">اختيار الملف</string>
+    <string name="product_image_label">صورة المنتج</string>
+    <string name="add_to_quote">إضافة للعرض</string>
 </resources>

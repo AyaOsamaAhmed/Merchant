@@ -79,4 +79,10 @@
     <string name="add_product">Add Product</string>
     <string name="current_product">Current Product</string>
     <string name="custom_product">Custom Product</string>
+    <string name="product_name">Product Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="price">Price</string>
+    <string name="choose_an_image">Choose an image</string>
+    <string name="product_image_label">Product Image</string>
+    <string name="add_to_quote">Add to quote</string>
 </resources>

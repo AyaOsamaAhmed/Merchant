@@ -1,8 +1,10 @@
 package com.rbt.merchant.presentation.fragment.home.main.chat.price_quote
 
 import android.content.Context
+import android.graphics.Paint
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
@@ -45,6 +47,11 @@ class PriceQuoteAddProductListAdapter: ListAdapter<ProductOrderDetailsModel, Pri
         private var itemRowBinding: CurrentProductListItemBinding = binding
         @RequiresApi(Build.VERSION_CODES.M)
         fun bind(obj: ProductOrderDetailsModel, context: Context) {
+            if (obj.product_old_price == null){
+                itemRowBinding.priceQuoteOldPriceTv.visibility = View.GONE
+            }else{
+                itemRowBinding.priceQuoteOldPriceTv.paintFlags = itemRowBinding.priceQuoteOldPriceTv.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
             itemRowBinding.setVariable(BR.model, obj)
             itemRowBinding.executePendingBindings()
 

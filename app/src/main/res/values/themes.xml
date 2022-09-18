@@ -15,6 +15,7 @@
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
         <item name="android:textViewStyle">@style/CairoTextViewStyle</item>
         <item name="switchStyle">@style/Widget.App.Switch</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="dark_button" parent="Widget.AppCompat.Button">
@@ -54,19 +55,19 @@
         <item name="colorOnSurface">@color/purple_500</item>
         <item name="colorSecondary">@color/purple_500</item>
     </style>
-
-   <!-- <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
-        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
-    </style>
-
-    <style name="ThemeOverlay.App.TabLayout" parent="">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorSurface">@color/purple_500</item>
-        <item name="colorOnSurface">@color/purple_500</item>
-    </style>-->
+    <!--tabs style-->
     <style name="TextAppearance.App.Tab" parent="TextAppearance.Design.Tab">
         <item name="fontFamily">@font/cairo_bold</item>
         <item name="android:fontFamily">@font/cairo_bold</item>
+    </style>
+    <!--bottom sheet style-->
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/draw_border_medium_white</item>
     </style>
 </resources>

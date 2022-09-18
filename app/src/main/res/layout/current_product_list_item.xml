@@ -92,7 +92,7 @@
             android:text="@string/add_product"
             android:textSize="@dimen/_11sdp"
             android:textColor="@color/white"
-            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/price_quote_name_txt"
             app:layout_constraintStart_toStartOf="@+id/price_quote_name_txt"

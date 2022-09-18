@@ -10,7 +10,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/draw_border_medium_white"
         tools:context=".presentation.fragment.home.main.chat.price_quote.PriceQuoteBottomSheetDialogFragment">
 
         <TextView
@@ -20,6 +19,7 @@
             android:text="@string/add_product"
             android:textColor="@color/purple_500"
             android:textSize="@dimen/_18sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layout_marginVertical="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +32,11 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_10sdp"
             app:tabTextAppearance="@style/TextAppearance.App.Tab"
-            app:tabRippleColor="@color/purple_200"
-            app:tabGravity="fill"
-            app:tabIndicatorFullWidth="true"
-            app:tabInlineLabel="true"
+            app:tabTextColor="@color/gray"
+            app:tabSelectedTextColor="@color/purple_500"
+            app:tabRippleColor="@color/white"
+            app:tabIndicatorColor="@color/purple_500"
+            app:tabIndicatorHeight="@dimen/_2sdp"
             app:tabIndicatorAnimationMode="linear"
             app:layout_constraintTop_toBottomOf="@+id/add_product_bottom_sheet_title_txt"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +65,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/price_quote_view_pager"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_300sdp"
+            android:layout_height="@dimen/_350sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:animateLayoutChanges="true"
             app:layout_constraintBottom_toBottomOf="parent"
