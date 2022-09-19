@@ -11,20 +11,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_layout_background"
-        tools:context=".presentation.fragment.home.main.orders_screen.OrdersFragment">
+        tools:context=".presentation.fragment.home.main.orders_screen.main_orders.OrdersFragment">
 
-        <TextView
-            android:layout_width="match_parent"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/branches_tab_layout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Orders Fragment"
-            android:textAlignment="center"
-            android:textColor="@color/purple_500"
-            android:textSize="@dimen/_18sdp"
-            android:textStyle="bold"
+            android:background="@color/main_layout_background"
+            app:tabMode="scrollable"
+            app:tabGravity="center"
+            app:tabIndicatorAnimationDuration="500"
+            app:tabIndicatorGravity="stretch"
+            app:tabSelectedTextColor="@color/white"
+            app:tabIndicatorAnimationMode="linear"
+            app:tabIndicator="@drawable/branches_tab_selected_bg"
+            app:tabBackground="@drawable/branches_tab_unselected_bg"
+            app:tabTextColor="@color/gray"
+            app:tabRippleColor="@color/purple_200"
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/branches_view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:animateLayoutChanges="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/branches_tab_layout" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_15sdp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

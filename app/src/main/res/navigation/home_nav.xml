@@ -104,7 +104,7 @@
     </fragment>
     <fragment
         android:id="@+id/ordersFragment"
-        android:name="com.rbt.merchant.presentation.fragment.home.main.orders_screen.OrdersFragment"
+        android:name="com.rbt.merchant.presentation.fragment.home.main.orders_screen.main_orders.OrdersFragment"
         tools:layout="@layout/fragment_orders"
         android:label="OrdersFragment" >
         <action
@@ -113,6 +113,13 @@
         <action
             android:id="@+id/action_ordersFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_ordersFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/orderDetailsFragment"

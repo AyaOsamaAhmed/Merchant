@@ -25,12 +25,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.ActivityMainBinding
-import com.rbt.merchant.presentation.fragment.home.main.StatisticsFragment
 import com.rbt.merchant.presentation.fragment.home.main.StatisticsFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.main.chivalry_screen.ChivalryRBTFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
-import com.rbt.merchant.presentation.fragment.home.main.orders_screen.OrdersFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.orders_screen.main_orders.OrdersFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.side_menu.ProfilesSwitcherAdapter
 import com.rbt.merchant.utils.common.CommonFunction
 import com.rbt.merchant.utils.common.LocaleHelper

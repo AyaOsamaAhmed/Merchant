@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.fragment.home.main.orders_screen.main_orders.MainOrdersFragment">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/main_order_tab_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorAnimationMode="linear"
+            app:tabIndicatorColor="@color/purple_500"
+            app:tabIndicatorHeight="@dimen/_2sdp"
+            app:tabRippleColor="@color/white"
+            app:tabSelectedTextColor="@color/purple_500"
+            app:tabTextAppearance="@style/TextAppearance.App.Tab"
+            app:tabTextColor="@color/gray">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_orders_tab"
+                android:textSize="@dimen/_15sdp" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/finished_orders"
+                android:textSize="@dimen/_15sdp" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/light_gray"
+            app:layout_constraintTop_toTopOf="@+id/main_order_view_pager"
+            app:layout_constraintEnd_toEndOf="@+id/main_order_view_pager"
+            app:layout_constraintStart_toStartOf="@+id/main_order_view_pager" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/main_order_view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_order_tab_dialog" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

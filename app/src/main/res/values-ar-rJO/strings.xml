@@ -100,4 +100,6 @@
     <string name="product_image_label">صورة المنتج</string>
     <string name="add_to_quote">إضافة للعرض</string>
     <string name="product_price_discount_format">%1$s%%  خصم</string>
+    <string name="current_orders_tab">Current Orders</string>
+    <string name="finished_orders">Finished Orders</string>
 </resources>

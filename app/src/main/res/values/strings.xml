@@ -100,4 +100,6 @@
     <string name="product_image_label">Product Image</string>
     <string name="add_to_quote">Add to quote</string>
     <string name="product_price_discount_format">%1$s%% discount</string>
+    <string name="current_orders_tab">Current Orders</string>
+    <string name="finished_orders">Finished Orders</string>
 </resources>

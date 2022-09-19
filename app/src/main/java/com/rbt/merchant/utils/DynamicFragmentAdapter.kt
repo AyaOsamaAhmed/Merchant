@@ -7,6 +7,8 @@ import com.rbt.merchant.presentation.fragment.home.main.branch_managing.BranchMa
 import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatsListFragment
 import com.rbt.merchant.presentation.fragment.home.main.chat.price_quote.CurrentProductListFragment
 import com.rbt.merchant.presentation.fragment.home.main.chat.price_quote.CustomProductFragment
+import com.rbt.merchant.presentation.fragment.home.main.orders_screen.main_orders.MainOrdersFragment
+import com.rbt.merchant.presentation.fragment.home.main.orders_screen.main_orders.MainOrdersListFragment
 import com.rbt.merchant.utils.constants.CurrentFragmentConstant
 import kotlin.properties.Delegates
 
@@ -26,6 +28,12 @@ class DynamicFragmentAdapter(fragmentManager: FragmentActivity): FragmentStateAd
             CurrentFragmentConstant.CHAT_FRAG -> {
                 ChatsListFragment(position)
             }
+            CurrentFragmentConstant.MAIN_ORDER_FRAG -> {
+                MainOrdersFragment(position)
+            }
+            CurrentFragmentConstant.MAIN_ORDER_LIST_FRAG -> {
+                MainOrdersListFragment(position)
+            }
             CurrentFragmentConstant.BRANCH_MANAGEMENT_FRAG -> {
                 BranchManagingFragment(position)
             }
@@ -41,7 +49,6 @@ class DynamicFragmentAdapter(fragmentManager: FragmentActivity): FragmentStateAd
                         CurrentProductListFragment()
                     }
                 }
-
             }
             else -> {
                 Fragment()
