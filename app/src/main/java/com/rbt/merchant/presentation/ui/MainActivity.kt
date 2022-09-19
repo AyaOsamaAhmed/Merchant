@@ -26,6 +26,8 @@ import com.google.android.material.navigation.NavigationView
 import com.rbt.merchant.R
 import com.rbt.merchant.databinding.ActivityMainBinding
 import com.rbt.merchant.presentation.fragment.home.main.StatisticsFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.branch_managing.BranchesManagementFragmentDirections
+import com.rbt.merchant.presentation.fragment.home.main.branch_managing.ProductManagingFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.main.chat.all_chats.ChatFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.main.chivalry_screen.ChivalryRBTFragmentDirections
 import com.rbt.merchant.presentation.fragment.home.main.home_screen.HomeFragmentDirections
@@ -82,6 +84,12 @@ class MainActivity : AppCompatActivity(), ShowPinedComponent , NavigationView.On
                 }
                 "OrdersFragment" -> {
                     navController.navigate(OrdersFragmentDirections.actionOrdersFragmentToProfileFragment())
+                }
+                "BranchesManagementFragment" -> {
+                    navController.navigate(BranchesManagementFragmentDirections.actionBranchesManagementFragmentToProfileFragment())
+                }
+                "ProductManagingFragment" -> {
+                    navController.navigate(ProductManagingFragmentDirections.actionProductManagingFragment2ToProfileFragment())
                 }
             }
 
