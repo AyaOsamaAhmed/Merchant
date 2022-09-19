@@ -64,6 +64,9 @@ class PriceQuoteAddProductListAdapter: ListAdapter<ProductOrderDetailsModel, Pri
             }
             itemRowBinding.setVariable(BR.model, obj)
             itemRowBinding.executePendingBindings()
+            itemRowBinding.addProductAtPriceQuoteSheet.setOnClickListener {
+
+            }
 
         }
     }
