@@ -70,7 +70,7 @@
     <string name="related_complaints">Related Complaints</string>
     <string name="related_inquiries">Related Inquiries</string>
     <string name="delivery_status">Delivery Status</string>
-    <string name="effective">Effective</string>
+    <string name="effective">Active</string>
     <string name="product_managing">Product Managing</string>
     <string name="quantity_available">Quantity Available</string>
     <string name="product_status">Product Status</string>

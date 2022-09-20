@@ -248,7 +248,7 @@ class ChatDetailsFragment : Fragment() {
             permissionLauncher.launch(permissionRequestList.toTypedArray())
         }
     }
-    fun switchRV(rvId:Int):Boolean{
+    private fun switchRV(rvId:Int):Boolean{
         when(rvId){
             0 ->{
                 if(binding.toolBoxFragmentLayout.relatedOrdersRv.isVisible){

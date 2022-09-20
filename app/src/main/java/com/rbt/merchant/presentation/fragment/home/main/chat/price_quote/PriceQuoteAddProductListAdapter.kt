@@ -18,7 +18,7 @@ import com.rbt.merchant.databinding.CurrentProductListItemBinding
 import com.rbt.merchant.domain.use_case.ui_models.order_details.ProductOrderDetailsModel
 
 private const val TAG = "ProductsListOrderDetailsAdapter"
-class PriceQuoteAddProductListAdapter: ListAdapter<ProductOrderDetailsModel, PriceQuoteAddProductListAdapter.ViewHolder>(
+class PriceQuoteAddProductListAdapter(private val listener: OnItemClickListener?=null): ListAdapter<ProductOrderDetailsModel, PriceQuoteAddProductListAdapter.ViewHolder>(
     ProductsModelDiffCallback()
 ) {
     private lateinit var context: Context
@@ -31,7 +31,7 @@ class PriceQuoteAddProductListAdapter: ListAdapter<ProductOrderDetailsModel, Pri
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), context)
+        holder.bind(getItem(position), context,listener)
     }
 
     class ProductsModelDiffCallback : DiffUtil.ItemCallback<ProductOrderDetailsModel>() {
@@ -48,9 +48,9 @@ class PriceQuoteAddProductListAdapter: ListAdapter<ProductOrderDetailsModel, Pri
     class ViewHolder(binding: CurrentProductListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private var itemRowBinding: CurrentProductListItemBinding = binding
-        @SuppressLint("StringFormatInvalid", "StringFormatMatches")
+        @SuppressLint("StringFormatInvalid", "StringFormatMatches", "LongLogTag")
         @RequiresApi(Build.VERSION_CODES.M)
-        fun bind(obj: ProductOrderDetailsModel, context: Context) {
+        fun bind(obj: ProductOrderDetailsModel, context: Context,listener: OnItemClickListener?) {
             if (obj.product_old_price == null){
                 itemRowBinding.priceQuoteOldPriceTv.visibility = View.GONE
                 itemRowBinding.discountValuePercentageTxt.visibility = View.GONE
@@ -65,9 +65,12 @@ class PriceQuoteAddProductListAdapter: ListAdapter<ProductOrderDetailsModel, Pri
             itemRowBinding.setVariable(BR.model, obj)
             itemRowBinding.executePendingBindings()
             itemRowBinding.addProductAtPriceQuoteSheet.setOnClickListener {
-
+                    listener?.onClick(obj)
             }
 
         }
+    }
+    interface OnItemClickListener{
+        fun onClick(product:ProductOrderDetailsModel)
     }
 }
